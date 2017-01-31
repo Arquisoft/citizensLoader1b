@@ -1,3 +1,8 @@
 Prueba
+<<<<<<< HEAD
 Probando edicion
 David
+=======
+
+Hola!!
+>>>>>>> origin/master
