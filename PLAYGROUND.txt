@@ -1,8 +1,2 @@
-Prueba
-<<<<<<< HEAD
-Probando edicion
-David
-=======
-
-Hola!!
->>>>>>> origin/master
+Probando la edicion 
+en el editor VI
