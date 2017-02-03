@@ -1,4 +1,4 @@
-# citizensLoader0
+# citizensLoader1b
 
 [![Join the chat at https://gitter.im/Arquisoft/citizensLoader1b](https://badges.gitter.im/Arquisoft/citizensLoader1b.svg)](https://gitter.im/Arquisoft/citizensLoader1b?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/Arquisoft/citizensLoader1b.svg?branch=master)](https://travis-ci.org/Arquisoft/citizensLoader1b)
@@ -6,6 +6,10 @@
 [![codecov](https://codecov.io/gh/Arquisoft/citizensLoader1b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/citizensLoader1b)
 
 Skeleton of Citizens Loader module
+
+# Participants
+
+Sergio Gutiérrez Pérez (@sergupe)
 
 # Authors
 
