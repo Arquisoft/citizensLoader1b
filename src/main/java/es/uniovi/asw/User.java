@@ -15,13 +15,13 @@ public class User {
 	private String DNI;
 	
 	public User(String name,String surname,String mail,String bithday,
-			String address,String nacionality,String DNI){
+			String address,String nationality,String DNI){
 		this.name = name;
 		this.surname = surname;
 		this.mail = mail;
 		this.birthday = bithday;
 		this.address = address;
-		this.nationality = nacionality;
+		this.nationality = nationality;
 		this.DNI = DNI;
 	}
 	
