@@ -103,22 +103,22 @@ public class Loader {
 	private void insertUserField(User user, int arrow,String value) {
 		switch(arrow){
 		case 0:
-			user.setNombre(value);
+			user.setName(value);
 			return;
 		case 1:
-			user.setApellidos(value);
+			user.setSurname(value);
 			return;
 		case 2:
 			user.setMail(value);
 			return;
 		case 3:
-			user.setFechaNacimiento(value);
+			user.setBirthday(value);
 			return;
 		case 4:
-			user.setDireccion(value);
+			user.setAddress(value);
 			return;
 		case 5:
-			user.setNacionalidad(value);
+			user.setNacionality(value);
 			return;
 		case 6:
 			user.setDNI(value);

@@ -21,7 +21,10 @@ public class LoadUsers {
 		runner.run(args);
 	}
 
-	// TODO
+
+	/** En esta version solo mostramos por pantalla los usuarios leidos
+	 * @param args
+	 */
 	void run(String... args) {
 		try {
 			loader = new Loader();
@@ -32,6 +35,5 @@ public class LoadUsers {
 		} catch (IOException e) {
 			System.out.println("Error I/O");
 		}
-		System.out.println("TODO");
 	}
 }

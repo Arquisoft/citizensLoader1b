@@ -1,44 +1,49 @@
 package es.uniovi.asw;
 
+/**
+ * Clase para almacenar los usuarios leidos por Loader
+ * @author david
+ *
+ */
 public class User {
 
 	private String name;
 	private String surname;
 	private String mail;
-	private String bithday;
+	private String birthday;
 	private String address;
 	private String nacionality;
 	private String DNI;
 	
-	public User(String name,String surname,String mail,String fechaNacimiento,
-			String direccion,String nacionalidad,String DNI){
+	public User(String name,String surname,String mail,String bithday,
+			String address,String nacionality,String DNI){
 		this.name = name;
 		this.surname = surname;
 		this.mail = mail;
-		this.bithday = fechaNacimiento;
-		this.address = direccion;
-		this.nacionality = nacionalidad;
+		this.birthday = bithday;
+		this.address = address;
+		this.nacionality = nacionality;
 		this.DNI = DNI;
 	}
 	
 	public User(){
 		
 	}
-
-	public String getNombre() {
+	
+	public String getName() {
 		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.name = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getApellidos() {
+	public String getSurname() {
 		return surname;
 	}
 
-	public void setApellidos(String apellidos) {
-		this.surname = apellidos;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public String getMail() {
@@ -49,28 +54,28 @@ public class User {
 		this.mail = mail;
 	}
 
-	public String getFechaNacimiento() {
-		return bithday;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
-		this.bithday = fechaNacimiento;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
-	public String getDireccion() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setDireccion(String direccion) {
-		this.address = direccion;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getNacionalidad() {
+	public String getNacionality() {
 		return nacionality;
 	}
 
-	public void setNacionalidad(String nacionalidad) {
-		this.nacionality = nacionalidad;
+	public void setNacionality(String nacionality) {
+		this.nacionality = nacionality;
 	}
 
 	public String getDNI() {
@@ -80,8 +85,8 @@ public class User {
 	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
-	
+
 	public String toString(){
-		return name+" "+surname+" "+mail+" "+" "+this.bithday+" "+address+" "+nacionality+" "+DNI;
+		return name+" "+surname+" "+mail+" "+" "+birthday+" "+address+" "+nacionality+" "+DNI;
 	}
 }
