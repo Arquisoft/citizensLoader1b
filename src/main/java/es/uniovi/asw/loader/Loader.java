@@ -121,7 +121,7 @@ public class Loader {
 			user.setAddress(value);
 			return;
 		case 5:
-			user.setNacionality(value);
+			user.setNationality(value);
 			return;
 		case 6:
 			user.setDNI(value);

@@ -16,16 +16,16 @@ import es.uniovi.asw.Program;
  */
 public class LoadUsers {
 	
-	public static void main(String... args) {
+	public static void main() {
 		final LoadUsers runner = new LoadUsers();
-		runner.run(args);
+		runner.run();
 	}
 
 
 	/** En esta version solo mostramos por pantalla los usuarios leidos
 	 * @param args
 	 */
-	void run(String... args) {
+	void run() {
 		try {
 			Program p = new Program();
 			p.execute();

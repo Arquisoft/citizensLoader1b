@@ -11,7 +11,7 @@ public class User {
 	private String mail;
 	private String birthday;
 	private String address;
-	private String nacionality;
+	private String nationality;
 	private String DNI;
 	
 	public User(String name,String surname,String mail,String bithday,
@@ -21,7 +21,7 @@ public class User {
 		this.mail = mail;
 		this.birthday = bithday;
 		this.address = address;
-		this.nacionality = nacionality;
+		this.nationality = nacionality;
 		this.DNI = DNI;
 	}
 	
@@ -69,12 +69,12 @@ public class User {
 		this.address = address;
 	}
 
-	public String getNacionality() {
-		return nacionality;
+	public String getNationality() {
+		return nationality;
 	}
 
-	public void setNacionality(String nacionality) {
-		this.nacionality = nacionality;
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 
 	public String getDNI() {
@@ -86,6 +86,6 @@ public class User {
 	}
 
 	public String toString(){
-		return name+" "+surname+" "+mail+" "+" "+birthday+" "+address+" "+nacionality+" "+DNI;
+		return name+" "+surname+" "+mail+" "+" "+birthday+" "+address+" "+nationality+" "+DNI;
 	}
 }
