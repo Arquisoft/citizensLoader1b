@@ -13,20 +13,26 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+
+/**
+ * Clase para la carga de un fichero excel mediante la libreria APache Poi
+ * @author david
+ *
+ */
 public class Loader {
 
-	private final static String RUTA_DEFECTO = "test.xlsx";
+	private final static String DEFAULT_PATH = "src/test/resources/test.xlsx";
 	
-	private List<Usuario> usuarios = new ArrayList<Usuario>(); //contenedor de usuarios
+	private List<User> users = new ArrayList<User>(); //contenedor de usuarios
 	private XSSFWorkbook workbook;  //referencia al libro de excel
 	
 	/**
 	 * Inicializamos la referencia al libro excel con la ruta recibida como parámetro
-	 * @param ruta Dirección del fichero a cargar
+	 * @param path Dirección del fichero a cargar
 	 * @throws IOException
 	 */
-	public Loader(String ruta) throws IOException{
-		this.workbook = new XSSFWorkbook(new FileInputStream(new File(ruta)));
+	public Loader(String path) throws IOException{
+		this.workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
 	}
 
 	/**
@@ -35,36 +41,47 @@ public class Loader {
 	 * @throws FileNotFoundException 
 	 */
 	public Loader() throws FileNotFoundException, IOException{
-		this.workbook = new XSSFWorkbook(new FileInputStream(new File(RUTA_DEFECTO)));
+		this.workbook = new XSSFWorkbook(new FileInputStream(new File(DEFAULT_PATH)));
 	}
 	
-	@SuppressWarnings("deprecation")
+	
+	/**
+	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios leídos en una 
+	 * lista
+	 */
 	public void readUsers(){
 		// para cada una de las hojas presentes en el documento de excel
 		for(int i=0;i < workbook.getNumberOfSheets();i++){
 			XSSFSheet sheet = this.workbook.getSheetAt(i);
 			Iterator<Row> rowIterator = sheet.iterator();
 			Row row;
-			int conta = 0;
+			int counter = 0;
+			//para cada fila de la hoja
 			while(rowIterator.hasNext()){
 				row = rowIterator.next();
-				if (conta > 0) {
+				if (counter > 0) { //omitimos la cabecera (hay que mirar si hay un metodo de la API)
 					Iterator<Cell> cellIterator = row.cellIterator();
-					Cell cell;
 					int j = 0;
-					Usuario usuario = new Usuario();
-					String valor = "";
+					User user = new User();
+					String value = "";
 					while (cellIterator.hasNext()) {
-						valor = this.getCellValue(cell = cellIterator.next());
-						this.insertarCampoUsuario(usuario, j++, valor);
+						value = this.getCellValue(cellIterator.next());
+						this.insertUserField(user, j++, value);
 					}
-					this.usuarios.add(usuario);
+					this.users.add(user);
 				}
-				conta++;
+				counter++;
 			}
 		}
 	}
 	
+	/**
+	 * Obtiene el tipo de una celda (celda numérica, texto o booleana)
+	 * Si no es tipo cadena lo convierte a una cadena (tipo de datos con los que trabajaremos)
+	 * @param cell
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
 	private String getCellValue(Cell cell){
 		switch (cell.getCellType()) {
 		case Cell.CELL_TYPE_NUMERIC:
@@ -77,28 +94,34 @@ public class Loader {
 		return "";
 	}
 
-	private void insertarCampoUsuario(Usuario usuario, int numColumna,String valor) {
-		switch(numColumna){
+	/**
+	 * En función de la columna del excel leída, insertaremos un valor u otro en el ciente
+	 * @param user
+	 * @param arrow
+	 * @param value
+	 */
+	private void insertUserField(User user, int arrow,String value) {
+		switch(arrow){
 		case 0:
-			usuario.setNombre(valor);
+			user.setNombre(value);
 			return;
 		case 1:
-			usuario.setApellidos(valor);
+			user.setApellidos(value);
 			return;
 		case 2:
-			usuario.setMail(valor);
+			user.setMail(value);
 			return;
 		case 3:
-			usuario.setFechaNacimiento(valor);
+			user.setFechaNacimiento(value);
 			return;
 		case 4:
-			usuario.setDireccion(valor);
+			user.setDireccion(value);
 			return;
 		case 5:
-			usuario.setNacionalidad(valor);
+			user.setNacionalidad(value);
 			return;
 		case 6:
-			usuario.setDNI(valor);
+			user.setDNI(value);
 			return;
 		}
 	}
@@ -108,7 +131,7 @@ public class Loader {
 	 * en el futuro se iran insertando en la BD
 	 */
 	public void showUsers(){
-		for(Usuario usuario : this.usuarios)
-			System.out.println(usuario.toString());
+		for(User user : this.users)
+			System.out.println(user.toString());
 	}
 }

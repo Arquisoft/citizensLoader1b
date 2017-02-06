@@ -1,44 +1,44 @@
 package es.uniovi.asw;
 
-public class Usuario {
+public class User {
 
-	private String nombre;
-	private String apellidos;
+	private String name;
+	private String surname;
 	private String mail;
-	private String fechaNacimiento;
-	private String direccion;
-	private String nacionalidad;
+	private String bithday;
+	private String address;
+	private String nacionality;
 	private String DNI;
 	
-	public Usuario(String nombre,String apellidos,String mail,String fechaNacimiento,
+	public User(String name,String surname,String mail,String fechaNacimiento,
 			String direccion,String nacionalidad,String DNI){
-		this.nombre = nombre;
-		this.apellidos = apellidos;
+		this.name = name;
+		this.surname = surname;
 		this.mail = mail;
-		this.fechaNacimiento = fechaNacimiento;
-		this.direccion = direccion;
-		this.nacionalidad = nacionalidad;
+		this.bithday = fechaNacimiento;
+		this.address = direccion;
+		this.nacionality = nacionalidad;
 		this.DNI = DNI;
 	}
 	
-	public Usuario(){
+	public User(){
 		
 	}
 
 	public String getNombre() {
-		return nombre;
+		return name;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.name = nombre;
 	}
 
 	public String getApellidos() {
-		return apellidos;
+		return surname;
 	}
 
 	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+		this.surname = apellidos;
 	}
 
 	public String getMail() {
@@ -50,27 +50,27 @@ public class Usuario {
 	}
 
 	public String getFechaNacimiento() {
-		return fechaNacimiento;
+		return bithday;
 	}
 
 	public void setFechaNacimiento(String fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+		this.bithday = fechaNacimiento;
 	}
 
 	public String getDireccion() {
-		return direccion;
+		return address;
 	}
 
 	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+		this.address = direccion;
 	}
 
 	public String getNacionalidad() {
-		return nacionalidad;
+		return nacionality;
 	}
 
 	public void setNacionalidad(String nacionalidad) {
-		this.nacionalidad = nacionalidad;
+		this.nacionality = nacionalidad;
 	}
 
 	public String getDNI() {
@@ -82,6 +82,6 @@ public class Usuario {
 	}
 	
 	public String toString(){
-		return nombre+" "+apellidos+" "+mail+" "+" "+this.fechaNacimiento+" "+direccion+" "+nacionalidad+" "+DNI;
+		return name+" "+surname+" "+mail+" "+" "+this.bithday+" "+address+" "+nacionality+" "+DNI;
 	}
 }

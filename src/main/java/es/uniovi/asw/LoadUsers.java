@@ -24,7 +24,7 @@ public class LoadUsers {
 	// TODO
 	void run(String... args) {
 		try {
-			loader = new Loader("/Users/david/Desktop/ARS/citizensLoader1b/src/test/resources/test.xlsx");
+			loader = new Loader();
 			loader.readUsers();
 			loader.showUsers();
 		} catch (FileNotFoundException e) {
