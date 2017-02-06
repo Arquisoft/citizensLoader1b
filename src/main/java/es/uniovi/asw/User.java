@@ -3,7 +3,6 @@ package es.uniovi.asw;
 /**
  * Clase para almacenar los usuarios leidos por Loader
  * @author david
- *
  */
 public class User {
 

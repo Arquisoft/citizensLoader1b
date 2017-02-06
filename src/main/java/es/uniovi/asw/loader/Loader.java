@@ -1,4 +1,4 @@
-package es.uniovi.asw;
+package es.uniovi.asw.loader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,6 +12,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import es.uniovi.asw.User;
 
 
 /**
@@ -49,7 +51,7 @@ public class Loader {
 	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios leídos en una 
 	 * lista
 	 */
-	public void readUsers(){
+	public List<User> loadUsers(){
 		// para cada una de las hojas presentes en el documento de excel
 		for(int i=0;i < workbook.getNumberOfSheets();i++){
 			XSSFSheet sheet = this.workbook.getSheetAt(i);
@@ -73,6 +75,7 @@ public class Loader {
 				counter++;
 			}
 		}
+		return this.users;
 	}
 	
 	/**
