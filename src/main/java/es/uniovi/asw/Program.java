@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.letters.PDFLetter;
+import es.uniovi.asw.letters.WordLetter;
+//import es.uniovi.asw.letters.PDFLetter;
 import es.uniovi.asw.letters.WriteLetter;
 import es.uniovi.asw.parser.RList;
 
@@ -33,7 +34,7 @@ public class Program {
 	
 	public void generateLetters() throws IOException{
 		for(Citizen user : citizens){
-			WriteLetter writer = new PDFLetter(user.getName(),user.getName()+"123"); // hasta que generemos la contraseña más elaboradamente será el nombre del usuario + 123
+			WriteLetter writer = new WordLetter(user.getName(),user.getName()+"123"); // hasta que generemos la contraseña más elaboradamente será el nombre del usuario + 123
 			writer.write("mediante el presente mail le adjuntamos su contraseña de inicio de sesión"
 					+ " para nuestra aplicación");
 		}
