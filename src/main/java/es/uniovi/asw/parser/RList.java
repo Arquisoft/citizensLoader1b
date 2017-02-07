@@ -1,4 +1,4 @@
-package es.uniovi.asw.loader;
+package es.uniovi.asw.parser;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,13 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.User;
+import es.uniovi.asw.Citizen;
 
 
 /**
@@ -21,11 +23,10 @@ import es.uniovi.asw.User;
  * @author david
  *
  */
-public class Loader {
+public class RList implements ReadList{
 
 	private final static String DEFAULT_PATH = "src/test/resources/test.xlsx";
-	
-	private List<User> users = new ArrayList<User>(); //contenedor de usuarios
+
 	private XSSFWorkbook workbook;  //referencia al libro de excel
 	
 	/**
@@ -33,7 +34,7 @@ public class Loader {
 	 * @param path Dirección del fichero a cargar
 	 * @throws IOException
 	 */
-	public Loader(String path) throws IOException{
+	public RList(String path) throws IOException{
 		this.workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
 	}
 
@@ -42,7 +43,7 @@ public class Loader {
 	 * @throws IOException 
 	 * @throws FileNotFoundException 
 	 */
-	public Loader() throws FileNotFoundException, IOException{
+	public RList() throws FileNotFoundException, IOException{
 		this.workbook = new XSSFWorkbook(new FileInputStream(new File(DEFAULT_PATH)));
 	}
 	
@@ -51,7 +52,8 @@ public class Loader {
 	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios leídos en una 
 	 * lista
 	 */
-	public List<User> loadUsers(){
+	public List<Citizen> read(){
+		List<Citizen> citizens = new ArrayList<Citizen>(); 
 		// para cada una de las hojas presentes en el documento de excel
 		for(int i=0;i < workbook.getNumberOfSheets();i++){
 			XSSFSheet sheet = this.workbook.getSheetAt(i);
@@ -64,18 +66,18 @@ public class Loader {
 				if (counter > 0) { //omitimos la cabecera (hay que mirar si hay un metodo de la API)
 					Iterator<Cell> cellIterator = row.cellIterator();
 					int j = 0;
-					User user = new User();
+					Citizen user = new Citizen();
 					String value = "";
 					while (cellIterator.hasNext()) {
 						value = this.getCellValue(cellIterator.next());
-						this.insertUserField(user, j++, value);
+						this.insertCitizenField(user, j++, value);
 					}
-					this.users.add(user);
+					citizens.add(user);
 				}
 				counter++;
 			}
 		}
-		return this.users;
+		return citizens;
 	}
 	
 	/**
@@ -88,9 +90,10 @@ public class Loader {
 	private String getCellValue(Cell cell){
 		switch (cell.getCellType()) {
 		case Cell.CELL_TYPE_NUMERIC:
-			return String.valueOf(cell.getNumericCellValue());
-		case Cell.CELL_TYPE_BOOLEAN:
-			return  String.valueOf(cell.getBooleanCellValue());
+			//Devolvemos la fecha en formato String para a la hora de la insercion
+			//insertar todos los campos del mismo modo, no tenemos que distinguir
+			//entre fecha, nombre, ...
+			return new SimpleDateFormat("dd/MM/yyyy").format(cell.getDateCellValue());
 		case Cell.CELL_TYPE_STRING:
 			return  cell.getStringCellValue();
 		}
@@ -99,42 +102,38 @@ public class Loader {
 
 	/**
 	 * En función de la columna del excel leída, insertaremos un valor u otro en el ciente
-	 * @param user
+	 * @param citizen
 	 * @param arrow
 	 * @param value
 	 */
-	private void insertUserField(User user, int arrow,String value) {
+	private void insertCitizenField(Citizen citizen, int arrow,String value) {
 		switch(arrow){
 		case 0:
-			user.setName(value);
+			citizen.setName(value);
 			return;
 		case 1:
-			user.setSurname(value);
+			citizen.setSurname(value);
 			return;
 		case 2:
-			user.setMail(value);
+			citizen.setMail(value);
 			return;
 		case 3:
-			user.setBirthday(value);
+			try {
+				citizen.setBirthday(new SimpleDateFormat("dd/MM/yyyy").parse(value));
+			} catch (ParseException e) {
+				System.out.println("Error al leer la fecha");
+				e.printStackTrace();
+			}
 			return;
 		case 4:
-			user.setAddress(value);
+			citizen.setAddress(value);
 			return;
 		case 5:
-			user.setNationality(value);
+			citizen.setNationality(value);
 			return;
 		case 6:
-			user.setDNI(value);
+			citizen.setDNI(value);
 			return;
 		}
-	}
-	
-	/**
-	 * Metodo para probar que los usuarios se cargan correctamente
-	 * en el futuro se iran insertando en la BD
-	 */
-	public void showUsers(){
-		for(User user : this.users)
-			System.out.println(user.toString());
 	}
 }

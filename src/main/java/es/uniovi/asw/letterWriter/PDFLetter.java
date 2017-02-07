@@ -1,11 +1,11 @@
-package es.uniovi.asw.writer;
+package es.uniovi.asw.letterWriter;
 
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
+//import com.itextpdf.kernel.pdf.PdfWriter;
+//import com.itextpdf.layout.Document;
 
 /**
  * Clase que implementa la interfaz WriteLetter para el envío de cartas PDF
@@ -21,7 +21,7 @@ public class PDFLetter extends AbstractWriteLetter{
 
 	@Override
 	public void write(String mensaje) throws IOException {
-		Document document;
+//		Document document;
 		FileOutputStream pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+this.userName+".pdf");
 	}
 }

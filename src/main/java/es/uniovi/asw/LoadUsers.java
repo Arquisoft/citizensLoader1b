@@ -1,10 +1,8 @@
-package es.uniovi.asw.loader;
+package es.uniovi.asw;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Logger;
-
-import es.uniovi.asw.Program;
 
 
 

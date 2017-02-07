@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.loader.Loader;
-import es.uniovi.asw.writer.DefaultLetter;
-import es.uniovi.asw.writer.WriteLetter;
+import es.uniovi.asw.letterWriter.DefaultLetter;
+import es.uniovi.asw.letterWriter.WriteLetter;
+import es.uniovi.asw.parser.RList;
 
 /**
  * Clase para centralizar la funcionalidad de la aplicación
@@ -17,21 +17,22 @@ import es.uniovi.asw.writer.WriteLetter;
  */
 public class Program {
 	
-	private List<User> users = new ArrayList<User>();
-	private Loader loader;
+	private List<Citizen> citizens = new ArrayList<Citizen>();
+	private RList loader;
 	
 	
 	public Program(String path) throws IOException{
-		this.loader = new Loader(path);
+		this.loader = new RList(path);
 	}
 	
 	public void execute() throws IOException{
-		this.users = this.loader.loadUsers();
+		this.citizens = this.loader.read();
+		this.showCitizens();
 		this.generateLetters();
 	}
 	
 	public void generateLetters() throws IOException{
-		for(User user : users){
+		for(Citizen user : citizens){
 			WriteLetter writer = new DefaultLetter(user.getName(),user.getName()+"123"); // hasta que generemos la contraseña más elaboradamente será el nombre del usuario + 123
 			writer.write("mediante el presente mail le adjuntamos su contraseña de inicio de sesión"
 					+ " para nuestra aplicación");
@@ -44,6 +45,11 @@ public class Program {
 	 * @throws IOException
 	 */
 	public Program() throws FileNotFoundException, IOException{
-		this.loader = new Loader();
+		this.loader = new RList();
+	}
+	
+	public void showCitizens(){
+		for(Citizen c : this.citizens)
+			System.out.println(c.toString());
 	}
 }

@@ -1,20 +1,22 @@
 package es.uniovi.asw;
 
+import java.util.Date;
+
 /**
  * Clase para almacenar los usuarios leidos por Loader
  * @author david
  */
-public class User {
+public class Citizen {
 
 	private String name;
 	private String surname;
 	private String mail;
-	private String birthday;
+	private Date birthday;
 	private String address;
 	private String nationality;
 	private String DNI;
 	
-	public User(String name,String surname,String mail,String bithday,
+	public Citizen(String name,String surname,String mail,Date bithday,
 			String address,String nationality,String DNI){
 		this.name = name;
 		this.surname = surname;
@@ -25,7 +27,7 @@ public class User {
 		this.DNI = DNI;
 	}
 	
-	public User(){
+	public Citizen(){
 		
 	}
 	
@@ -53,11 +55,11 @@ public class User {
 		this.mail = mail;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
