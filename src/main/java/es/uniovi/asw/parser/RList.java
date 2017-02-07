@@ -32,19 +32,32 @@ public class RList implements ReadList{
 	/**
 	 * Inicializamos la referencia al libro excel con la ruta recibida como parámetro
 	 * @param path Dirección del fichero a cargar
-	 * @throws IOException
 	 */
-	public RList(String path) throws IOException{
-		this.workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
+	public RList(String path) {
+		try {
+			this.workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
+		} catch (FileNotFoundException e) {
+			System.out.println("No se encuentra el fichero");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Error E/S");
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx" de ejemplo
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
 	 */
-	public RList() throws FileNotFoundException, IOException{
-		this.workbook = new XSSFWorkbook(new FileInputStream(new File(DEFAULT_PATH)));
+	public RList(){
+		try {
+			this.workbook = new XSSFWorkbook(new FileInputStream(new File(DEFAULT_PATH)));
+		} catch (FileNotFoundException e) {
+			System.out.println("No se encuentra el fichero");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Error E/S");
+			e.printStackTrace();
+		}
 	}
 	
 	
