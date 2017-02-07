@@ -14,16 +14,16 @@ import java.util.logging.Logger;
  */
 public class LoadUsers {
 	
-	public static void main() {
+	public static void main(String args[]) {
 		final LoadUsers runner = new LoadUsers();
-		runner.run();
+		runner.run(args);
 	}
 
 
 	/** En esta version solo mostramos por pantalla los usuarios leidos
 	 * @param args
 	 */
-	void run() {
+	void run(String args[]) {
 		try {
 			Program p = new Program();
 			p.execute();
