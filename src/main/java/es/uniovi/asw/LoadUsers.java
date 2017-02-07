@@ -4,11 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-
-
 /**
  * Main application
- * 
  * @author Labra
  *
  */
@@ -18,7 +15,6 @@ public class LoadUsers {
 		final LoadUsers runner = new LoadUsers();
 		runner.run(args);
 	}
-
 
 	/** En esta version solo mostramos por pantalla los usuarios leidos
 	 * @param args
