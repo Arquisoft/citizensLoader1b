@@ -1,4 +1,4 @@
-package es.uniovi.asw.letterWriter;
+package es.uniovi.asw.letters;
 
 import java.io.IOException;
 
@@ -13,6 +13,10 @@ public class WordLetter extends AbstractWriteLetter {
 		super(userName,userPass);
 	}
 
+	/**
+	 * Sobreescritura del método write para escribir la carta 
+	 * al usuario en formato Microsoft Word
+	 */
 	@Override
 	public void write(String mensaje) throws IOException {
 		

@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.letterWriter.DefaultLetter;
-import es.uniovi.asw.letterWriter.PDFLetter;
-import es.uniovi.asw.letterWriter.WriteLetter;
+import es.uniovi.asw.letters.PDFLetter;
+import es.uniovi.asw.letters.WriteLetter;
 import es.uniovi.asw.parser.RList;
 
 /**

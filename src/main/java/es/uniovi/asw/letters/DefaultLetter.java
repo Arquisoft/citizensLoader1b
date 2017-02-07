@@ -1,4 +1,4 @@
-package es.uniovi.asw.letterWriter;
+package es.uniovi.asw.letters;
 
 import java.io.FileWriter;
 import java.io.IOException;

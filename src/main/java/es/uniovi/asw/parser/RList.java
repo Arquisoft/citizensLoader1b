@@ -96,8 +96,9 @@ public class RList implements ReadList{
 			return new SimpleDateFormat("dd/MM/yyyy").format(cell.getDateCellValue());
 		case Cell.CELL_TYPE_STRING:
 			return  cell.getStringCellValue();
+		default:
+			return"";
 		}
-		return "";
 	}
 
 	/**
@@ -133,6 +134,8 @@ public class RList implements ReadList{
 			return;
 		case 6:
 			citizen.setDNI(value);
+			return;
+		default:
 			return;
 		}
 	}
