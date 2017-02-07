@@ -10,7 +10,7 @@ Skeleton of Citizens Loader module
 # Participants
 
 Sergio Gutiérrez Pérez (@sergupe)
-David García González
+David García González (@DavidGG1983)
 Oliver Gómez Tejerina
 Alejandro Fernández Matia
 
