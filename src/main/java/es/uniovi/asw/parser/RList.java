@@ -80,11 +80,8 @@ public class RList implements ReadList{
 					Iterator<Cell> cellIterator = row.cellIterator();
 					int j = 0;
 					Citizen user = new Citizen();
-					String value = "";
-					while (cellIterator.hasNext()) {
-						value = this.getCellValue(cellIterator.next());
-						this.insertCitizenField(user, j++, value);
-					}
+					while (cellIterator.hasNext()) 	
+						this.insertCitizenField(user, j++, cellIterator.next());	
 					citizens.add(user);
 				}
 				counter++;
@@ -92,61 +89,35 @@ public class RList implements ReadList{
 		}
 		return citizens;
 	}
-	
-	/**
-	 * Obtiene el tipo de una celda (celda numérica, texto o booleana)
-	 * Si no es tipo cadena lo convierte a una cadena (tipo de datos con los que trabajaremos)
-	 * @param cell
-	 * @return
-	 */
-	@SuppressWarnings("deprecation")
-	private String getCellValue(Cell cell){
-		switch (cell.getCellType()) {
-		case Cell.CELL_TYPE_NUMERIC:
-			//Devolvemos la fecha en formato String para a la hora de la insercion
-			//insertar todos los campos del mismo modo, no tenemos que distinguir
-			//entre fecha, nombre, ...
-			return new SimpleDateFormat("dd/MM/yyyy").format(cell.getDateCellValue());
-		case Cell.CELL_TYPE_STRING:
-			return  cell.getStringCellValue();
-		default:
-			return"";
-		}
-	}
 
 	/**
 	 * En función de la columna del excel leída, insertaremos un valor u otro en el ciente
 	 * @param citizen
 	 * @param arrow
-	 * @param value
+	 * @param cell
 	 */
-	private void insertCitizenField(Citizen citizen, int arrow,String value) {
+	private void insertCitizenField(Citizen citizen, int arrow,Cell cell) {
 		switch(arrow){
 		case 0:
-			citizen.setName(value);
+			citizen.setName(cell.getStringCellValue());
 			return;
 		case 1:
-			citizen.setSurname(value);
+			citizen.setSurname(cell.getStringCellValue());
 			return;
 		case 2:
-			citizen.setMail(value);
+			citizen.setMail(cell.getStringCellValue());
 			return;
 		case 3:
-			try {
-				citizen.setBirthday(new SimpleDateFormat("dd/MM/yyyy").parse(value));
-			} catch (ParseException e) {
-				System.out.println("Error al leer la fecha");
-				e.printStackTrace();
-			}
+			citizen.setBirthday(cell.getDateCellValue());
 			return;
 		case 4:
-			citizen.setAddress(value);
+			citizen.setAddress(cell.getStringCellValue());
 			return;
 		case 5:
-			citizen.setNationality(value);
+			citizen.setNationality(cell.getStringCellValue());
 			return;
 		case 6:
-			citizen.setDNI(value);
+			citizen.setDNI(cell.getStringCellValue());
 			return;
 		default:
 			return;
