@@ -11,7 +11,7 @@ Skeleton of Citizens Loader module
 
 Sergio Gutiérrez Pérez (@sergupe)
 David García González (@DavidGG1983)
-Oliver Gómez Tejerina
+Oliver Gómez Tejerina (@alexmatia)
 Alejandro Fernández Matia
 
 # Authors
