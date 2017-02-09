@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Alejandro
  *
  */
+public class Log {
 
 	/**
 	 * Metodo que escribe en un fichero log un error ocurrido
