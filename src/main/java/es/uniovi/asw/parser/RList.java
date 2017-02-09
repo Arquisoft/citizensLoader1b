@@ -26,16 +26,18 @@ import es.uniovi.asw.Citizen;
 public class RList implements ReadList{
 
 	private final static String DEFAULT_PATH = "src/test/resources/test.xlsx";
-
+	
 	private XSSFWorkbook workbook;  //referencia al libro de excel
 	
 	/**
-	 * Inicializamos la referencia al libro excel con la ruta recibida como parámetro
+	 * Inicializamos la referencia al libro excel con la ruta recibida como
+	 * parámetro
 	 * @param path Dirección del fichero a cargar
 	 */
 	public RList(String path) {
 		try {
-			this.workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
+			FileInputStream file = new FileInputStream(new File(path));
+			this.workbook = new XSSFWorkbook(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero");
 			e.printStackTrace();
@@ -46,11 +48,13 @@ public class RList implements ReadList{
 	}
 
 	/**
-	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx" de ejemplo
+	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx"
+	 * de ejemplo
 	 */
 	public RList(){
 		try {
-			this.workbook = new XSSFWorkbook(new FileInputStream(new File(DEFAULT_PATH)));
+			FileInputStream file = new FileInputStream(new File(DEFAULT_PATH));
+			this.workbook = new XSSFWorkbook(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero");
 			e.printStackTrace();
@@ -62,8 +66,8 @@ public class RList implements ReadList{
 	
 	
 	/**
-	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios leídos en una 
-	 * lista
+	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios
+	 * leídos en una lista
 	 */
 	public List<Citizen> read(){
 		List<Citizen> citizens = new ArrayList<Citizen>(); 
@@ -91,10 +95,11 @@ public class RList implements ReadList{
 	}
 
 	/**
-	 * En función de la columna del excel leída, insertaremos un valor u otro en el ciente
+	 * En función de la columna del excel leída, insertaremos un valor u otro
+	 * en el cliente
 	 * @param citizen
 	 * @param arrow
-	 * @param cell
+	 * @param cell La celda a tratar en cada momento
 	 */
 	private void insertCitizenField(Citizen citizen, int arrow,Cell cell) {
 		switch(arrow){

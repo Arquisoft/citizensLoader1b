@@ -88,6 +88,8 @@ public class Citizen {
 	}
 
 	public String toString(){
-		return name+" "+surname+" "+mail+" "+" "+birthday+" "+address+" "+nationality+" "+DNI;
+		return "[Nombre: " +name+"] [Apellido: "+surname+"] [E-Mail: "+mail
+				+"] [Cumpleaños: "+birthday+"] [Direccion: "+address
+				+"] [Nacionalidad: "+nationality+"] [DNI: "+DNI+"]";
 	}
 }

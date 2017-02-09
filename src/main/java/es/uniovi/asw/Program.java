@@ -12,7 +12,8 @@ import es.uniovi.asw.parser.RList;
 
 /**
  * Clase para centralizar la funcionalidad de la aplicación
- * (Pendiente de agregar una instancia de la BD, de momento trabajaremos sobre una lista de usuarios)
+ * (Pendiente de agregar una instancia de la BD, de momento trabajaremos sobre 
+ * una lista de usuarios)
  * En esta clase se instancian el cargador y el módulo para escribir las cartas
  * @author david
  */
@@ -41,7 +42,8 @@ public class Program {
 	}
 	
 	/**
-	 * En el constructor por defecto, el loader se carga con el fichero de prueba test.xlsx
+	 * En el constructor por defecto, el loader se carga con el fichero de
+	 * prueba test.xlsx
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
