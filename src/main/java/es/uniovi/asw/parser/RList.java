@@ -98,11 +98,11 @@ public class RList implements ReadList{
 	 * En función de la columna del excel leída, insertaremos un valor u otro
 	 * en el cliente
 	 * @param citizen
-	 * @param arrow
+	 * @param col columna en la que se encuentra la celda a tratar
 	 * @param cell La celda a tratar en cada momento
 	 */
-	private void insertCitizenField(Citizen citizen, int arrow,Cell cell) {
-		switch(arrow){
+	private void insertCitizenField(Citizen citizen, int col,Cell cell) {
+		switch(col){
 		case 0:
 			citizen.setName(cell.getStringCellValue());
 			return;
@@ -128,4 +128,5 @@ public class RList implements ReadList{
 			return;
 		}
 	}
+	
 }
