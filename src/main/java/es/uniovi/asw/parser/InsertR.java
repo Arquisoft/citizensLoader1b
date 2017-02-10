@@ -3,6 +3,7 @@ package es.uniovi.asw.parser;
 import java.util.List;
 
 import es.uniovi.asw.Citizen;
+import es.uniovi.asw.dbupdater.InsertP;
 
 public class InsertR implements Insert{
 	

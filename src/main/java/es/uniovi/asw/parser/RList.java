@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -64,11 +61,6 @@ public class RList implements ReadList{
 		}
 	}
 	
-	
-	/**
-	 * Lee el fichero de excel y hasta la creación de la BD inserta los usuarios
-	 * leídos en una lista
-	 */
 	public List<Citizen> read(){
 		List<Citizen> citizens = new ArrayList<Citizen>(); 
 		// para cada una de las hojas presentes en el documento de excel
