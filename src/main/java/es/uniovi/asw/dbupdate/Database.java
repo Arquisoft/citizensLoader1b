@@ -9,8 +9,7 @@ import java.util.List;
 
 import es.uniovi.asw.Citizen;
 
-
-
+ 
 public class Database implements UpdateDB {
 
 	@Override
@@ -44,7 +43,7 @@ public class Database implements UpdateDB {
 		
 	}
 	
-	private Connection getConection(){
+	public Connection getConection(){
 		Connection con = null;     
         try {	
 			 Class.forName( "org.hsqldb.jdbcDriver" );
