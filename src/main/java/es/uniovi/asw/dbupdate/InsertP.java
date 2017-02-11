@@ -28,7 +28,7 @@ public class InsertP implements Insert{
 		try{
 			
 			for(CitizenDB citizen : citizens)
-				if(checkCitizen.checkCitizenInformation(citizen) ){
+				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
 					citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
 				}
@@ -50,7 +50,7 @@ public class InsertP implements Insert{
 	 */
 	private boolean checkCitizen(CitizenDB citizen) {
 
-		Query query = Jpa.getManager().createQuery("select * from persona where dni = ?");
+		Query query = Jpa.getManager().createQuery("select c from CitizenDB c where c.DNI = ?1");
 		query.setParameter(1 , citizen.getDNI());
 		if(!query.getResultList().isEmpty()){
 			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
