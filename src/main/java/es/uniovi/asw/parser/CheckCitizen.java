@@ -37,12 +37,12 @@ public class CheckCitizen {
 		if(!checkFieldString(dni, "dni"))
 			return false;
 		else if (dni.length() != 9 || Character.isDigit(dni.toString().charAt(dni.length()-1))
-				|| areDigits(dni.substring(0, 8))){
+				|| !areDigits(dni.substring(0, 7))){
 			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
 			return false;
 		}
 		
-		return false;
+		return true;
 	}
 
 	/**Metodo que se encarga de comprobar si una cadena son numeros

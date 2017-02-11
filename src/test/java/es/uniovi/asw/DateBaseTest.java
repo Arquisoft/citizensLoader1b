@@ -20,7 +20,6 @@ public class DateBaseTest {
 
 	@Test
 	public void test() throws Exception {
-		fail("Not yet implemented");
 		ArrayList<CitizenDB> citizenDBs = new ArrayList<CitizenDB>();
 		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
 		for(int i = 0; i<9 ; i++){

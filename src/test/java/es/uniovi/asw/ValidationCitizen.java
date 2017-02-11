@@ -22,8 +22,6 @@ public class ValidationCitizen {
 	@Test
 	public void test() throws ParseException {
 		
-		
-		
 		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
 		Date date =  d.parse("01-03-1996");
 		CitizenDB citizenDBOk  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,

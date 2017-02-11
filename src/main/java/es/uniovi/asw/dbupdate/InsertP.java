@@ -28,7 +28,7 @@ public class InsertP implements Insert{
 		try{
 			
 			for(CitizenDB citizen : citizens)
-				if(checkCitizen.checkCitizenInformation(citizen) && checkCitizen(citizen)){
+				if(checkCitizen.checkCitizenInformation(citizen) ){
 					citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
 				}
