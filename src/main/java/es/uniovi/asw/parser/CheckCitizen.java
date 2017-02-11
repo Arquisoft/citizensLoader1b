@@ -2,11 +2,9 @@ package es.uniovi.asw.parser;
 
 import java.util.Date;
 
-import javax.swing.text.AbstractDocument.LeafElement;
-
 import es.uniovi.asw.Citizen;
 import es.uniovi.asw.dbupdate.WReportR;
-import es.uniovi.asw.reportwritter.WriteReport;
+import es.uniovi.asw.dbupdate.WriteReport;
 
 /**
  * @author Asus
@@ -39,7 +37,11 @@ public class CheckCitizen {
 		if(!checkFieldString(dni, "dni"))
 			return false;
 		else if (dni.length() != 9 || Character.isDigit(dni.toString().charAt(dni.length()-1))
-				|| areDigits(dni.substring(0, 8)))
+				|| areDigits(dni.substring(0, 8))){
+			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			return false;
+		}
+		
 		return false;
 	}
 

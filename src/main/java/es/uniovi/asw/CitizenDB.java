@@ -2,6 +2,8 @@ package es.uniovi.asw;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
 /**
  * Clase que adapta los ciudadanos creados para su posterior insercion en la
  * base de datos
@@ -12,7 +14,7 @@ import java.util.Date;
 public class CitizenDB {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; //Id autogenerado cuando se inserta el ciudadano a la BD
 	@Column(nullable = false)
 	private String name;
@@ -28,7 +30,7 @@ public class CitizenDB {
 	private String nationality;
 	@Column(unique = true, nullable = false)
 	private String DNI;
-	@Collumn(nullable = false)
+	@Column(nullable = false)
 	private String password; //La password que se va a poner al ciudadano
 	
 

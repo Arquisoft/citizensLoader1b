@@ -1,5 +1,6 @@
 package es.uniovi.asw.parser;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import es.uniovi.asw.Citizen;
@@ -8,7 +9,7 @@ import es.uniovi.asw.dbupdate.InsertP;
 public class InsertR implements Insert{
 	
 	@Override
-	public List<Citizen> insert(List<Citizen> citizen, String path) {
+	public List<Citizen> insert(List<Citizen> citizen, String path) throws SQLException {
 		//Obtenemos el ciudadano que vamos a insertar y lo enviamos al método
 		//insertar de la clase InsertarP perteneciente al elemento DBUpdater
 		//que se encargará de insertar el ciudadano en la base de datos.
