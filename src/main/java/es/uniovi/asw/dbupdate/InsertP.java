@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
-import es.uniovi.asw.Citizen;
+import es.uniovi.asw.CitizenDB;
+import es.uniovi.asw.parser.CheckCitizen;
+import es.uniovi.asw.parser.GenerationPassword;
 
 /**
  * 
@@ -14,15 +17,21 @@ import es.uniovi.asw.Citizen;
  */
 public class InsertP implements Insert{
 
+	private CheckCitizen checkCitizen = new CheckCitizen();
+	private GenerationPassword generationPassword = new GenerationPassword();
+	
 	@Override
-	public List<Citizen> insert(List<Citizen> citizens, String path) throws SQLException {
+	public List<CitizenDB> insert(List<CitizenDB> citizens, String path) throws SQLException {
 		EntityManager em = Jpa.createEntityManager();
 		EntityTransaction trx = em.getTransaction();
 		trx.begin();
 		try{
 			
-			for(Citizen citizen : citizens)
-				Jpa.getManager().persist(citizen);
+			for(CitizenDB citizen : citizens)
+				if(checkCitizen.checkCitizenInformation(citizen) && checkCitizen(citizen)){
+					citizen.setPassword(generationPassword.passwordGenerator());
+					Jpa.getManager().persist(citizen);
+				}
 	    
 		trx.commit();	    
 		}catch(RuntimeException e){
@@ -33,5 +42,21 @@ public class InsertP implements Insert{
 			em.close();
 		}
 		return null;
+	}
+
+	/**Metodo que se encarga de comprobar si un ciudano ya existe en la base de datos
+	 * @param citizen: ciudadano que queremos comprobar
+	 * @return devuelve true si no esta y false si esta
+	 */
+	private boolean checkCitizen(CitizenDB citizen) {
+
+		Query query = Jpa.getManager().createQuery("select * from persona where dni = ?");
+		query.setParameter(1 , citizen.getDNI());
+		if(!query.getResultList().isEmpty()){
+			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			return false;
+		}
+		return true;
+		
 	}
 }

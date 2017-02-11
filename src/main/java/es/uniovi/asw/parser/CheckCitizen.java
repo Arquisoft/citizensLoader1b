@@ -2,12 +2,12 @@ package es.uniovi.asw.parser;
 
 import java.util.Date;
 
-import es.uniovi.asw.Citizen;
+import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.dbupdate.WReportR;
 import es.uniovi.asw.dbupdate.WriteReport;
 
 /**
- * @author Asus
+ * @author oliver
  *
  */
 public class CheckCitizen {
@@ -17,7 +17,7 @@ public class CheckCitizen {
 	/**
 	 * @param citizen
 	 */
-	public boolean checkCitizenInformation(Citizen citizen){
+	public boolean checkCitizenInformation(CitizenDB citizen){
 		return checkFieldString(citizen.getName(),"name") 
 				&& checkFieldString(citizen.getSurname(),"surname") 
 				&& checkMail(citizen.getMail()) 
@@ -33,7 +33,7 @@ public class CheckCitizen {
 	 * @return devuelve true en caso de que no este vacio y false en caso de que si, ademas
 	 * en este caso escribiria el error en el log
 	 */
-	private boolean checkDNI(String dni) {
+	public boolean checkDNI(String dni) {
 		if(!checkFieldString(dni, "dni"))
 			return false;
 		else if (dni.length() != 9 || Character.isDigit(dni.toString().charAt(dni.length()-1))
@@ -62,7 +62,7 @@ public class CheckCitizen {
 	 * @return devuelve true en caso de que no sea null y false en caso de que si, ademas
 	 * en este caso escribiria el error en el log
 	 */
-	private boolean checkBirthday(Date birthday) {
+	public boolean checkBirthday(Date birthday) {
 		if(birthday == null){
 			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
 			return false;
@@ -75,7 +75,7 @@ public class CheckCitizen {
 	 * @return devuelve true en caso de que el campo no este vacio y tenga el formato correcto y 
 	 * falso en el caso de que esto no se cierto, ademas en este caso se escribiria un error en el log
 	 */
-	private boolean checkMail(String mail) {
+	public boolean checkMail(String mail) {
 		if(!checkFieldString(mail, "mail"))
 			return false;
 		else if (!mail.toString().contains(".") ||!mail.toString().contains("@")
@@ -97,7 +97,7 @@ public class CheckCitizen {
 	 * @return devuelve true en caso de que el campo no este vacio y falso en el caso de que si
 	 * ademas en este caso se escribiria un error en el log
 	 */
-	private boolean checkFieldString(String field , String attribute) {
+	public boolean checkFieldString(String field , String attribute) {
 		if(field.isEmpty()){
 			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
 			return false;

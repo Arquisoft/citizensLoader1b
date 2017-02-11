@@ -30,7 +30,7 @@ public class CitizenDB {
 	private String nationality;
 	@Column(unique = true, nullable = false)
 	private String DNI;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String password; //La password que se va a poner al ciudadano
 	
 
@@ -79,6 +79,10 @@ public class CitizenDB {
 
 	public String getNationality() {
 		return nationality;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 	public String getDNI() {

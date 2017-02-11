@@ -3,7 +3,7 @@ package es.uniovi.asw.parser;
 import java.sql.SQLException;
 import java.util.List;
 
-import es.uniovi.asw.Citizen;
+import es.uniovi.asw.CitizenDB;
 
 public interface Insert {
 
@@ -14,6 +14,6 @@ public interface Insert {
 	 * @return La lista de ciudadanos insertados
 	 * @throws SQLException 
 	 */
-	List<Citizen> insert(List<Citizen> citizen, String path) throws SQLException;
+	List<CitizenDB> insert(List<CitizenDB> citizen, String path) throws SQLException;
 
 }
