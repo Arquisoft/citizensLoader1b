@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdater;
+package es.uniovi.asw.dbupdate;
 
 import java.util.List;
 
