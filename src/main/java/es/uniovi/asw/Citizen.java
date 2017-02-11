@@ -15,6 +15,7 @@ public class Citizen {
 	private String address;
 	private String nationality;
 	private String DNI;
+	private String password;
 	
 	public Citizen(String name,String surname,String mail,Date bithday,
 			String address,String nationality,String DNI){
@@ -77,6 +78,14 @@ public class Citizen {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getDNI() {
