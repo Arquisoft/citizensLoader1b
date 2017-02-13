@@ -16,6 +16,5 @@ public class GenerationPassword {
 			password = password + characters.charAt(random.nextInt(characters.length()-1));
 		}
 		return password;
-		
 	}
 }
