@@ -1,5 +1,8 @@
 /target/
 
+.pdf
+.doc
+.txt
 .metadata
 bin/
 tmp/
