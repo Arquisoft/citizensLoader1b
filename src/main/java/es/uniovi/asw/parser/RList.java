@@ -78,6 +78,7 @@ public class RList implements ReadList{
 					Citizen user = new Citizen();
 					while (cellIterator.hasNext()) 	
 						this.insertCitizenField(user, j++, cellIterator.next());	
+					user.setPassword(new GenerationPassword().passwordGenerator());
 					citizens.add(user);
 				}
 				counter++;

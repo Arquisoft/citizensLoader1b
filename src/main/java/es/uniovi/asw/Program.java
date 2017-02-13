@@ -35,8 +35,8 @@ public class Program {
 	
 	public void generateLetters() throws IOException{
 		for(Citizen user : citizens){
-			WriteLetter writer = new WordLetter(user.getName(),user.getName()+"123"); // hasta que generemos la contraseña más elaboradamente será el nombre del usuario + 123
-			writer.write("mediante el presente mail le adjuntamos su contraseña de inicio de sesión"
+			WriteLetter writer = new WordLetter(user.getName(),user.getPassword(),user.getMail()); //el mail será el login del usuario en el sistema
+			writer.write("mediante el presente mail le adjuntamos su usuario y contraseña de inicio de sesión"
 					+ " para nuestra aplicación");
 		}
 	}

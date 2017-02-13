@@ -83,8 +83,7 @@ public class CheckCitizen {
 				|| mail.toString().charAt(mail.length()-1) == '.' 
 				|| mail.toString().charAt(mail.length()-1) == '@'){
 			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
-			return false;
-			
+			return false;	
 		}
 			
 		return true;

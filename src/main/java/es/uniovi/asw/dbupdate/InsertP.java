@@ -29,7 +29,7 @@ public class InsertP implements Insert{
 			
 			for(CitizenDB citizen : citizens)
 				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
-					citizen.setPassword(generationPassword.passwordGenerator());
+					//citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
 				}
 	    

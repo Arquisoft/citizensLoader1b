@@ -6,10 +6,12 @@ public abstract class AbstractWriteLetter implements WriteLetter {
 	
 	protected String userName;
 	protected String userPass;
+	protected String mail;
 	
-	public AbstractWriteLetter(String userName,String userPass){
-		this.userName = userName;
+	public AbstractWriteLetter(String name,String userPass, String mail){
+		this.userName = name;
 		this.userPass = userPass;
+		this.mail = mail;
 	}
 
 	public String getUserName() {
@@ -26,6 +28,14 @@ public abstract class AbstractWriteLetter implements WriteLetter {
 
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
+	}
+	
+	public String getMail(){
+		return this.mail;
+	}
+	
+	public void setMail(String mail){
+		this.mail = mail;
 	}
 
 	@Override

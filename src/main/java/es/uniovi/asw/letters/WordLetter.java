@@ -18,8 +18,8 @@ public class WordLetter extends AbstractWriteLetter {
 	
 	private XWPFDocument document;
 	
-	public WordLetter(String userName,String userPass) {
-		super(userName,userPass);
+	public WordLetter(String userName,String userPass,String mail) {
+		super(userName,userPass, mail);
 		this.document = new XWPFDocument();
 	}
 
@@ -31,6 +31,7 @@ public class WordLetter extends AbstractWriteLetter {
 	public void write(String mensaje) throws IOException {
 		this.writeParagraph("Estimado usuario");
 		this.writeParagraph(mensaje);
+		this.writeParagraph("Usuario: "+this.mail);
 		this.writeParagraph("Contraseña: "+this.userPass);
 		this.saveDocument("src/main/resources/letters/doc/"+this.userName);
 	}

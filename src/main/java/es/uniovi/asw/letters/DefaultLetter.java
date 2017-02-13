@@ -7,8 +7,8 @@ import java.io.PrintWriter;
 
 public class DefaultLetter extends AbstractWriteLetter{
 	
-	public DefaultLetter(String userName,String userPass){
-		super(userName,userPass);
+	public DefaultLetter(String userName,String userPass,String mail){
+		super(userName,userPass, mail);
 	}
 
 	@Override
@@ -19,6 +19,7 @@ public class DefaultLetter extends AbstractWriteLetter{
 		
 		printWriter.println("Estimado "+this.userName);
 		printWriter.println(mensaje);
+		printWriter.println("Usuario: "+this.mail);
 		printWriter.println("Contraseña: "+this.userPass);
 		printWriter.close();
 	}

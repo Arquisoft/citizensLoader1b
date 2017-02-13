@@ -19,8 +19,8 @@ public class PDFLetter extends AbstractWriteLetter{
 
 	private Document document;
 	
-	public PDFLetter(String userName, String userPass) {
-		super(userName, userPass);
+	public PDFLetter(String userName, String userPass,String mail) {
+		super(userName, userPass, mail);
 		document = this.createDocument();
 	}
 
@@ -34,6 +34,7 @@ public class PDFLetter extends AbstractWriteLetter{
 			try{
 				document.add(new Paragraph("Estimado "+this.userName));
 				document.add(new Paragraph(mensaje));
+				document.add(new Paragraph("Usuario: "+this.mail));
 				document.add(new Paragraph("Contraseña: "+this.userPass));
 			}
 			catch(DocumentException e){
