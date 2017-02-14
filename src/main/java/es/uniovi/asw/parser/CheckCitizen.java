@@ -15,7 +15,7 @@ public class CheckCitizen {
 	private  WriteReport reporter = new WReportR();
 
 	/**
-	 * @param citizen
+	 * @param citizen Usuario del que se quiere a comprobar los datos
 	 */
 	public boolean checkCitizenInformation(CitizenDB citizen){
 		return checkFieldString(citizen.getName(),"name") 

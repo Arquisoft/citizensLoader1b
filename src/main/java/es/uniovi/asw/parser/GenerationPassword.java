@@ -8,6 +8,10 @@ public class GenerationPassword {
 	
 	private int passwordLengt = 9;
 	
+	/**
+	 * Método que genera contraseñas aleatorias
+	 * @return La contaseña en formato String
+	 */
 	public String passwordGenerator(){
 		
 		Random random = new Random();

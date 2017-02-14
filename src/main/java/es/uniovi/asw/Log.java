@@ -12,10 +12,11 @@ import java.util.Date;
  *
  */
 public class Log {
+	
 	/**
-	 * Metodo que escribe en un fichero log un error ocurrido
+	 * Método que escribe en un fichero log un error ocurrido
 	 * 
-	 * @param error
+	 * @param error El error que ha ocurrido
 	 * @throws IOException
 	 */
 	public void recordError(String error) throws IOException {
@@ -33,6 +34,11 @@ public class Log {
 		}
 	}
 
+	/**
+	 * 
+	 * @param e
+	 * @throws IOException
+	 */
 	public void printError(Exception e) throws IOException {
 		String error = e.getLocalizedMessage();
 		recordError(error);

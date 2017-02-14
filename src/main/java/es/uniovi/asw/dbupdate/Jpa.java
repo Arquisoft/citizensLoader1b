@@ -20,16 +20,30 @@ public class Jpa {
 	private static ThreadLocal<EntityManager> emThread = 
 		new ThreadLocal<EntityManager>();
 	
+	/**
+	 * Método para crear la EntityManager
+	 * @return la EntityManager creada
+	 */
 	public static EntityManager createEntityManager() {
 		EntityManager entityManager = getEmf().createEntityManager();
 		emThread.set(entityManager);
 		return entityManager;
 	}
 
+	/**
+	 * Método para obtener la EntityManager que está en uso
+	 * @return La EntityManager
+	 */
 	public static EntityManager getManager() {
 		return emThread.get();
 	}
 
+	/**
+	 * Método para obtener la EntityManagerFactory asociada a la unidad 
+	 * de persistencia actual. En el caso de que no halla ninguna, se crea
+	 * una asociándola a la unidad de persistencia actual.
+	 * @return La EntityManagerFactory
+	 */
 	private static EntityManagerFactory getEmf() {
 		if (emf == null){
 			String persistenceUnitName = loadPersistentUnitName();
@@ -38,6 +52,10 @@ public class Jpa {
 		return emf;
 	}
 
+	/**
+	 * Método para cargar la unidad de persistencia
+	 * @return El primer elemento de la unidad de persistencia
+	 */
 	private static String loadPersistentUnitName() {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
