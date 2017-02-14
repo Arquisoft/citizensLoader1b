@@ -12,7 +12,6 @@ import java.util.Date;
  *
  */
 public class Log {
-
 	/**
 	 * Metodo que escribe en un fichero log un error ocurrido
 	 * 

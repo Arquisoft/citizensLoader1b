@@ -30,7 +30,7 @@ public class DateBaseTest {
 		}
 			Insert insert = new InsertP();
 			
-			insert.insert(citizenDBs, " ");
+			//insert.insert(citizenDBs, " ");
 		}
 }
 
