@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import es.uniovi.asw.Citizen;
 import es.uniovi.asw.CitizenDB;
+import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.parser.CheckCitizen;
 import es.uniovi.asw.parser.GenerationPassword;
 
@@ -30,7 +31,7 @@ public class InsertP implements Insert{
 			
 			for(Citizen citizen : citizens)
 				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
-					//citizen.setPassword(generationPassword.passwordGenerator());
+					citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
 				}
 	    
@@ -50,11 +51,11 @@ public class InsertP implements Insert{
 	 * @return devuelve true si no esta y false si esta
 	 */
 	private boolean checkCitizen(Citizen citizen) {
-
+		WriteReport report = new WReportR();
 		Query query = Jpa.getManager().createQuery("select c from CitizenDB c where c.DNI = ?1");
 		query.setParameter(1 , citizen.getDNI());
 		if(!query.getResultList().isEmpty()){
-			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			report.log("El usuario ya existe en la base de datos.");
 			return false;
 		}
 		return true;

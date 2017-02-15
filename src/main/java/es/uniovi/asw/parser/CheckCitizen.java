@@ -3,9 +3,9 @@ package es.uniovi.asw.parser;
 import java.util.Date;
 
 import es.uniovi.asw.Citizen;
-import es.uniovi.asw.CitizenDB;
+import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.dbupdate.WReportR;
-import es.uniovi.asw.dbupdate.WriteReport;
+
 
 /**
  * @author oliver
@@ -13,7 +13,7 @@ import es.uniovi.asw.dbupdate.WriteReport;
  */
 public class CheckCitizen {
 	
-	private  WriteReport reporter = new WReportR();
+	private  WriteReport report = new WReportR();
 
 	/**
 	 * @param citizen Usuario del que se quiere a comprobar los datos
@@ -35,11 +35,13 @@ public class CheckCitizen {
 	 * en este caso escribiria el error en el log
 	 */
 	public boolean checkDNI(String dni) {
-		if(!checkFieldString(dni, "dni"))
+		if(!checkFieldString(dni, "dni")){
+			report.log("El dni esta vacio.");
 			return false;
+		}
 		else if (dni.length() != 9 || Character.isDigit(dni.toString().charAt(dni.length()-1))
 				|| !areDigits(dni.substring(0, 7))){
-			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			report.log("El dni no tiene el formato correcto.");
 			return false;
 		}
 		
@@ -65,7 +67,7 @@ public class CheckCitizen {
 	 */
 	public boolean checkBirthday(Date birthday) {
 		if(birthday == null){
-			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			report.log("El campo birthday esta vacio.");
 			return false;
 		}
 		return true;
@@ -77,13 +79,15 @@ public class CheckCitizen {
 	 * falso en el caso de que esto no se cierto, ademas en este caso se escribiria un error en el log
 	 */
 	public boolean checkMail(String mail) {
-		if(!checkFieldString(mail, "mail"))
+		if(!checkFieldString(mail, "mail")){
+			report.log("El mail esta vacio.");
 			return false;
+		}
 		else if (!mail.toString().contains(".") ||!mail.toString().contains("@")
 				|| mail.toString().startsWith("@") ||  mail.toString().startsWith(".") 
 				|| mail.toString().charAt(mail.length()-1) == '.' 
 				|| mail.toString().charAt(mail.length()-1) == '@'){
-			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
+			report.log("El mail no tiene el formato correcto.");
 			return false;	
 		}
 			
@@ -99,7 +103,6 @@ public class CheckCitizen {
 	 */
 	public boolean checkFieldString(String field , String attribute) {
 		if(field.isEmpty()){
-			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
 			return false;
 		}
 		return true;
