@@ -2,13 +2,17 @@ package es.uniovi.asw;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 //import es.uniovi.asw.letters.WordLetter;
 import es.uniovi.asw.letters.PDFLetter;
 import es.uniovi.asw.letters.WriteLetter;
 import es.uniovi.asw.parser.RList;
+import es.uniovi.asw.parser.RListExcel;
 
 /**
  * Clase para centralizar la funcionalidad de la aplicación
@@ -19,12 +23,12 @@ import es.uniovi.asw.parser.RList;
  */
 public class Program {
 	
-	private List<Citizen> citizens = new ArrayList<Citizen>();
+	private List<CitizenDB> citizens = new ArrayList<CitizenDB>();
 	private RList loader;
 	
 	
 	public Program(String path) throws IOException{
-		this.loader = new RList(path);
+		this.loader = new RListExcel();
 	}
 	
 	public void execute() throws IOException{
@@ -34,7 +38,7 @@ public class Program {
 	}
 	
 	public void generateLetters() throws IOException{
-		for(Citizen user : citizens){
+		for(CitizenDB user : citizens){
 			WriteLetter writer = new PDFLetter(user.getName(),user.getPassword(),user.getMail()); //el mail será el login del usuario en el sistema
 			writer.write("mediante el presente mail le adjuntamos su usuario y contraseña de inicio de sesión"
 					+ " para nuestra aplicación");
@@ -48,11 +52,11 @@ public class Program {
 	 * @throws IOException
 	 */
 	public Program() throws FileNotFoundException, IOException{
-		this.loader = new RList();
+		this.loader = new RListExcel();
 	}
 	
 	public void showCitizens(){
-		for(Citizen c : this.citizens)
+		for(CitizenDB c : this.citizens)
 			System.out.println(c.toString());
 	}
 }

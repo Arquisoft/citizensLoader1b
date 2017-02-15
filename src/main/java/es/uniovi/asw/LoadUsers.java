@@ -2,6 +2,7 @@ package es.uniovi.asw;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Main application
@@ -17,8 +18,9 @@ public class LoadUsers {
 
 	/** En esta version solo mostramos por pantalla los usuarios leidos
 	 * @param args
+	 * @throws SQLException 
 	 */
-	private void run(String args[]) {
+	private void run(String args[]){
 		try {
 			Program p = new Program();
 			p.execute();

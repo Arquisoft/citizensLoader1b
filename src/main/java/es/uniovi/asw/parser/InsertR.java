@@ -12,12 +12,12 @@ public class InsertR implements Insert{
 	
 	
 	@Override
-	public List<CitizenDB> insert(List<CitizenDB> citizen, String path) throws SQLException {
+	public List<CitizenDB> insert(List<Citizen> citizen) throws SQLException {
 		//Obtenemos el ciudadano que vamos a insertar y lo enviamos al método
 		//insertar de la clase InsertarP perteneciente al elemento DBUpdater
 		//que se encargará de insertar el ciudadano en la base de datos.
 		// (falta por hacer dicho elemento/paquete asi como sus clases)
-		return new InsertP().insert(citizen, path);
+		return new InsertP().insert(citizen);
 	}
 
 }

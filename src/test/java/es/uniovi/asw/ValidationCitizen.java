@@ -24,15 +24,15 @@ public class ValidationCitizen {
 		
 		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
 		Date date =  d.parse("01-03-1996");
-		CitizenDB citizenDBOk  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+		Citizen citizenDBOk  = new Citizen("Nombre","Apellidos","email@gmail.com",date,
 				"Calle","España","12345678A");
-		CitizenDB citizenDBOkFieldEmpty  = new CitizenDB("","Apellidos","email@gmail.com",date,
+		Citizen citizenDBOkFieldEmpty  = new Citizen("","Apellidos","email@gmail.com",date,
 				"Calle","España","12345678A");
-		CitizenDB citizenDBErrorEmail  = new CitizenDB("Nombre","Apellidos","emailgmail.com",date,
+		Citizen citizenDBErrorEmail  = new Citizen("Nombre","Apellidos","emailgmail.com",date,
 				"Calle","España","12345678A");
-		CitizenDB citizenDBNullBirtday  = new CitizenDB("Nombre","Apellidos","email@gmail.com",null,
+		Citizen citizenDBNullBirtday  = new Citizen("Nombre","Apellidos","email@gmail.com",null,
 				"Calle","España","12345678A");
-		CitizenDB citizenDBErrorDNI  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+		Citizen citizenDBErrorDNI  = new Citizen("Nombre","Apellidos","email@gmail.com",date,
 				"Calle","España","1234578A");
 		
 		assertTrue(checkCitizen.checkCitizenInformation(citizenDBOk));

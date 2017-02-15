@@ -7,16 +7,17 @@ import java.util.List;
 import org.junit.Test;
 
 import es.uniovi.asw.parser.RList;
+import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.ReadList;
 
 public class RListTest {
 	
 	
-	private ReadList reader = new RList();
+	private ReadList reader = new RListExcel();
 
 	@Test
 	public void readFile(){
-		List<Citizen> citizens = this.reader.read();
+		List<CitizenDB> citizens = this.reader.read();
 		
 		assertEquals(citizens.get(0).getSurname(), "Torres Pardo");
 		assertEquals(citizens.get(1).getSurname(), "López Fernando");
