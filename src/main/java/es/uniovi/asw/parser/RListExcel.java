@@ -13,7 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.Citizen;
+import es.uniovi.asw.CitizenDB;
 
 public class RListExcel extends RList {
 	
@@ -57,8 +57,8 @@ public class RListExcel extends RList {
 		}
 	}
 	
-	public List<Citizen> readFile(){
-		List<Citizen> citizens = new ArrayList<Citizen>(); 
+	public List<CitizenDB> readFile(){
+		List<CitizenDB> citizens = new ArrayList<CitizenDB>(); 
 		// para cada una de las hojas presentes en el documento de excel
 		for(int i=0;i < workbook.getNumberOfSheets();i++){
 			XSSFSheet sheet = this.workbook.getSheetAt(i);
@@ -71,7 +71,7 @@ public class RListExcel extends RList {
 				if (counter > 0) { //omitimos la cabecera (hay que mirar si hay un metodo de la API)
 					Iterator<Cell> cellIterator = row.cellIterator();
 					int j = 0;
-					Citizen user = new Citizen();
+					CitizenDB user = new CitizenDB();
 					while (cellIterator.hasNext()) 	
 						this.insertCitizenField(user, j++, cellIterator.next());	
 					user.setPassword(new GenerationPassword().passwordGenerator());
@@ -90,7 +90,7 @@ public class RListExcel extends RList {
 	 * @param col columna en la que se encuentra la celda a tratar
 	 * @param cell La celda a tratar en cada momento
 	 */
-	private void insertCitizenField(Citizen citizen, int col,Cell cell) {
+	private void insertCitizenField(CitizenDB citizen, int col,Cell cell) {
 		switch(col){
 		case 0:
 			citizen.setName(cell.getStringCellValue());

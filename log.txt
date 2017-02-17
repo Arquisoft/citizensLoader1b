@@ -1,0 +1,3 @@
+Fri Feb 17 15:11:13 CET 2017 - El mail no tiene el formato correcto.
+Fri Feb 17 15:11:13 CET 2017 - El campo birthday esta vacio.
+Fri Feb 17 15:11:13 CET 2017 - El dni no tiene el formato correcto.

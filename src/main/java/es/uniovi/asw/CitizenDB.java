@@ -53,8 +53,32 @@ public class CitizenDB {
 		return id;
 	}
 	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public void setSurname(String surname){
+		this.surname = surname;
+	}
+	
+	public void setMail(String mail){
+		this.mail = mail;
+	}
+	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public void setAddress(String address){
+		this.address = address;
+	}
+	
+	public void setNationality(String nationality){
+		this.nationality = nationality;
+	}
+	
+	public void setDNI(String DNI){
+		this.DNI = DNI;
 	}
 	
 	public String getName() {
@@ -118,6 +142,10 @@ public class CitizenDB {
 		} else if (!DNI.equals(other.DNI))
 			return false;
 		return true;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 	
 	

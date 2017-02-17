@@ -11,6 +11,7 @@ public class DefaultLetter extends AbstractWriteLetter{
 		super(userName,userPass, mail);
 	}
 
+	
 	@Override
 	public void write(String mensaje) throws IOException {
 		PrintWriter printWriter = new PrintWriter(new FileWriter(

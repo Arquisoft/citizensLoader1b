@@ -1,10 +1,9 @@
 package es.uniovi.asw.parser;
 
 import java.util.Date;
-
-import es.uniovi.asw.Citizen;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.dbupdate.WReportR;
+import es.uniovi.asw.CitizenDB;
 
 
 /**
@@ -18,7 +17,7 @@ public class CheckCitizen {
 	/**
 	 * @param citizen Usuario del que se quiere a comprobar los datos
 	 */
-	public boolean checkCitizenInformation(Citizen citizen){
+	public boolean checkCitizenInformation(CitizenDB citizen){
 		return checkFieldString(citizen.getName(),"name") 
 				&& checkFieldString(citizen.getSurname(),"surname") 
 				&& checkMail(citizen.getMail()) 

@@ -3,7 +3,6 @@ package es.uniovi.asw.dbupdate;
 import java.sql.SQLException;
 import java.util.List;
 
-import es.uniovi.asw.Citizen;
 import es.uniovi.asw.CitizenDB;
 
 public interface Insert {
@@ -13,6 +12,6 @@ public interface Insert {
 	 * @return La lista de ciudadanos insertados
 	 * @throws SQLException 
 	 */
-	List<CitizenDB> insert(List<Citizen> citizen) throws SQLException;
+	List<CitizenDB> insert(List<CitizenDB> citizen) throws SQLException;
 	
 }

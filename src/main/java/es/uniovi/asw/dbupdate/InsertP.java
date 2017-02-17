@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import es.uniovi.asw.Citizen;
 import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.parser.CheckCitizen;
@@ -23,13 +22,13 @@ public class InsertP implements Insert{
 	private GenerationPassword generationPassword = new GenerationPassword();
 	
 	@Override
-	public List<CitizenDB> insert(List<Citizen> citizens) throws SQLException {
+	public List<CitizenDB> insert(List<CitizenDB> citizens) throws SQLException {
 		EntityManager em = Jpa.createEntityManager();
 		EntityTransaction trx = em.getTransaction();
 		trx.begin();
 		try{
 			
-			for(Citizen citizen : citizens)
+			for(CitizenDB citizen : citizens)
 				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
 					citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
@@ -50,7 +49,7 @@ public class InsertP implements Insert{
 	 * @param citizen: ciudadano que queremos comprobar
 	 * @return devuelve true si no esta y false si esta
 	 */
-	private boolean checkCitizen(Citizen citizen) {
+	private boolean checkCitizen(CitizenDB citizen) {
 		WriteReport report = new WReportR();
 		Query query = Jpa.getManager().createQuery("select c from CitizenDB c where c.DNI = ?1");
 		query.setParameter(1 , citizen.getDNI());
