@@ -34,6 +34,16 @@ public class CitizenDB {
 	private String password; //La password que se va a poner al ciudadano
 	
 
+	/**Constructor de la clase CitizenDB
+	 * 
+	 * @param name: nombre del citizen
+	 * @param surname: apellidos del citizen
+	 * @param mail: email del citizen
+	 * @param bithday: cumpleaños del citizen
+	 * @param address: direccion del citizen
+	 * @param nationality: naciolidad del citizen
+	 * @param DNI: DNI del citizen
+	 */
 	public CitizenDB(String name,String surname,String mail,Date bithday,
 			String address,String nationality,String DNI){
 		this.name = name;
@@ -45,80 +55,152 @@ public class CitizenDB {
 		this.DNI = DNI;
 	}
 	
-	public CitizenDB(){
-		
-	}
 	
-	public Long getId() {
-		return id;
+	/**Metodo de modificacion del atributo id
+	 * @param id : id del citizen
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
-	public void setName(String name){
+
+	/**Metodo de modificacion del atributo name
+	 * @param name : name del citizen
+	 */
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public void setSurname(String surname){
+
+	/**Metodo de modificacion del atributo surname
+	 * @param surname : surname del citizen
+	 */
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
-	public void setMail(String mail){
+
+	/**Metodo de modificacion del atributo mail
+	 * @param mail : mail del citizen
+	 */
+	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	/**Metodo de modificacion del atributo birthday
+	 * @param birthday : birthday del citizen
+	 */
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	/**Metodo de modificacion del atributo address
+	 * @param address : address del citizen
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	/**Metodo de modificacion del atributo nationality
+	 * @param nationality : nationality del citizen
+	 */
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	/**Metodo de modificacion del atributo DNI
+	 * @param DNI : DNI del citizen
+	 */
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
+	}
 	
+	/**Metodo de modificacion del atributo password
+	 * @param password : password del citizen
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	public void setAddress(String address){
-		this.address = address;
+	/**Constructor sin parametros
+	*/
+	public CitizenDB(){
+		
 	}
 	
-	public void setNationality(String nationality){
-		this.nationality = nationality;
+	/**Metodo de acceso al atributo id
+	 * @return devuelve el atributo id
+	 */
+	public Long getId() {
+		return id;
 	}
 	
-	public void setDNI(String DNI){
-		this.DNI = DNI;
-	}
-	
+	/**Metodo de acceso al atributo name
+	 * @return devuelve el atributo name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**Metodo de acceso al atributo surname
+	 * @return devuelve el atributo surname
+	 */
 	public String getSurname() {
 		return surname;
 	}
 
+	/**Metodo de acceso al atributo mail
+	 * @return devuelve el atributo mail
+	 */
 	public String getMail() {
 		return mail;
 	}
 
+	/**Metodo de acceso al atributo birthday
+	 * @return devuelve el atributo birthday
+	 */
 	public Date getBirthday() {
 		return birthday;
 	}
 
+	/**Metodo de acceso al atributo address
+	 * @return devuelve el atributo address
+	 */
 	public String getAddress() {
 		return address;
 	}
 
+	/**Metodo de acceso al atributo nationality
+	 * @return devuelve el atributo nationality
+	 */
 	public String getNationality() {
 		return nationality;
 	}
-	
+
+	/**Metodo de acceso al atributo password
+	 * @return devuelve el atributo password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**Metodo de acceso al atributo DNI
+	 * @return devuelve el atributo DNI
+	 */
 	public String getDNI() {
 		return DNI;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override 
 	public String toString(){
 		return "[Nombre: " +name+"] [Apellido: "+surname+"] [E-Mail: "+mail
 				+"] [Cumpleaños: "+birthday+"] [Direccion: "+address
 				+"] [Nacionalidad: "+nationality+"] [DNI: "+DNI+"]";
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -127,6 +209,9 @@ public class CitizenDB {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -142,10 +227,6 @@ public class CitizenDB {
 		} else if (!DNI.equals(other.DNI))
 			return false;
 		return true;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 	
 	
