@@ -1,20 +1,13 @@
 ﻿package es.uniovi.asw;
 
-import static org.junit.Assert.*;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-
 import org.junit.Test;
-
-import es.uniovi.asw.dbupdate.Insert;
-import es.uniovi.asw.dbupdate.InsertP;
 import es.uniovi.asw.dbupdate.Jpa;
 
 
@@ -28,7 +21,7 @@ public class DateBaseTest {
 	public void test() throws Exception {
 		ArrayList<CitizenDB> citizenDBs = new ArrayList<CitizenDB>();
 		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
-		Long numberCitizenAntiguos = (Long) checkNumbeCitizen();
+		//Long numberCitizenAntiguos = (Long) checkNumbeCitizen();
 		for(int i = 0; i<9 ; i++){
 			Date date =  d.parse((1+i)+"-03-1996");
 			CitizenDB citizenDB  = new CitizenDB("Nombre"+i,"Apellidos"+i,"email"+i+"@gmail.com",date,
