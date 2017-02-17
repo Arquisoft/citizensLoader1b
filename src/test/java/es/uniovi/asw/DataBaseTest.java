@@ -1,4 +1,4 @@
-﻿package es.uniovi.asw;
+package es.uniovi.asw;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import es.uniovi.asw.dbupdate.Jpa;
  * @author oliver
  *
  */
-public class DateBaseTest {
+public class DataBaseTest {
 
 	@Test
 	public void test() throws Exception {
