@@ -4,12 +4,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import es.uniovi.asw.parser.RList;
+import es.uniovi.asw.parser.RListExcel;
+
 /**
  * Main application
  * @author Labra
  *
  */
 public class LoadUsers {
+	
+	private RList rList;
 	
 	public static void main(String args[]) {
 		final LoadUsers runner = new LoadUsers();
@@ -21,13 +26,33 @@ public class LoadUsers {
 	 * @throws SQLException 
 	 */
 	private void run(String args[]){
-		try {
-			Program p = new Program();
-			p.execute();
-		} catch (FileNotFoundException e) {
-			System.out.println("No se he encontrado el fichero excel");
-		} catch (IOException e) {
-			System.out.println("Error I/O");
+		if(args == null){
+			System.err.println("Error irrecuperable, reinicie la aplicacion");
+			return;
 		}
+		if(args.length == 0){
+			System.err.println("Error en la entrada, teclee -help para ver la ayuda");
+			return;
+		}
+		else{
+			this.runOptions(args);
+		}
+	}
+	
+	private void runOptions(String args[]){
+		if(args[0].compareToIgnoreCase("-help") == 0){
+			this.printHelp();
+			return;
+		}
+		String ruta = args[0];
+		if(args.length == 1){ // nos llega sólo la ruta del fichero sin parametros
+			rList = new RListExcel(ruta);
+		}
+		rList.read();
+		return;
+	}
+	
+	private void printHelp() {
+		
 	}
 }

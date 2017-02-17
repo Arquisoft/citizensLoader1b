@@ -15,7 +15,6 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  */
 public class WordLetter extends AbstractWriteLetter {
 
-	
 	private XWPFDocument document;
 	
 	public WordLetter(String userName,String userPass,String mail) {

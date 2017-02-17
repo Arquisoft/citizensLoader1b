@@ -8,8 +8,6 @@ import es.uniovi.asw.dbupdate.InsertP;
 
 public class InsertR implements Insert{
 	
-	
-	
 	@Override
 	public List<CitizenDB> insert(List<CitizenDB> citizen) throws SQLException {
 		//Obtenemos el ciudadano que vamos a insertar y lo enviamos al método
