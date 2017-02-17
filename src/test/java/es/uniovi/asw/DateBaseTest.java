@@ -25,7 +25,7 @@ public class DateBaseTest {
 		for(int i = 0; i<9 ; i++){
 			Date date =  d.parse((1+i)+"-03-1996");
 			CitizenDB citizenDB  = new CitizenDB("Nombre"+i,"Apellidos"+i,"email"+i+"@gmail.com",date,
-					"Calle"+i,"España",generatorDNI()+"A");
+					"Calle"+i,"España", generatorDNI()+"A");
 			citizenDBs.add(citizenDB);
 		}
 			//Insert insert = new InsertP();
