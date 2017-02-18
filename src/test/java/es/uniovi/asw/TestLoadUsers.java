@@ -19,6 +19,9 @@ public class TestLoadUsers {
 		args[0] = "src/test/resources/test.xlsx";
 		assertEquals(loader.run(args),"por defecto");
 		
+		args[0] = "-help";
+		assertEquals(loader.run(args),"ayuda");
+		
 		args = new String[2];
 		args[0] = "src/test/resources/test.xlsx";
 		args[1] = "-w";
@@ -34,6 +37,11 @@ public class TestLoadUsers {
 		assertEquals(loader.run(args),"error");
 		
 		args[1] = "123";
+		assertEquals(loader.run(args),"error");
+		
+		args = new String[5];
+		for(int i=0;i < args.length;i++)
+			args[i] ="";
 		assertEquals(loader.run(args),"error");
 	}
 }
