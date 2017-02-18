@@ -18,14 +18,10 @@ import es.uniovi.asw.CitizenDB;
  */
 public class WordLetter extends AbstractWriteLetter {
 
-	private XWPFDocument document;
-	
 	public WordLetter(List<CitizenDB> citizens,String message) {
 		super(citizens,message);
-		for(CitizenDB citizen : citizens){
-			this.document = new XWPFDocument();
+		for(CitizenDB citizen : citizens)
 			this.write(citizen);
-		}
 	}
 
 	/**
@@ -34,13 +30,22 @@ public class WordLetter extends AbstractWriteLetter {
 	 */
 	@Override
 	public void write(CitizenDB citizen) {
-		this.writeParagraph("Estimado usuario");
-		this.writeParagraph(this.message);
-		this.writeParagraph("Usuario: "+citizen.getMail());
-		this.writeParagraph("Contraseña: "+citizen.getPassword());
-		this.saveDocument("src/main/resources/letters/doc/"+citizen.getName());
+		XWPFDocument document = new XWPFDocument();
+		this.writeParagraph(document,"Estimado usuario");
+		this.writeParagraph(document,this.message);
+		this.writeParagraph(document,"Usuario: "+citizen.getMail());
+		this.writeParagraph(document,"Contraseña: "+citizen.getPassword());
+		FileOutputStream output;
+		try {
+			output = new FileOutputStream("src/main/resources/letters/doc/"+citizen.getName()+".doc");
+			document.write(output);
+			output.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("Error al generar el documento Word;no se encuentra el fichero");
+		} catch (IOException e) {
+			System.err.println("Error de entrada/salida al generar el documento Word");
+		}
 	}
-	
 	
 	/**
 	 * Método que se encarga de escribir un texto en un párrafo 
@@ -48,31 +53,11 @@ public class WordLetter extends AbstractWriteLetter {
 	 * @param document
 	 * @param text
 	 */
-	private void writeParagraph(String text){
+	private void writeParagraph(XWPFDocument document,String text){
 		XWPFParagraph paragraph = document.createParagraph();
 		paragraph.setAlignment(ParagraphAlignment.BOTH);
 		paragraph.createRun().setText(text);
 		paragraph.createRun().setFontSize(12);
 		paragraph.createRun().addCarriageReturn();
-	}
-	
-	/**
-	 * Método que se encarga de escribir en 
-	 * disco el documento. Recibe la ruta y el nombre del documento
-	 * como parámetro
-	 * @param title
-	 */
-	private void saveDocument(String title){
-		try {
-			FileOutputStream output = new FileOutputStream(title+".doc");
-			document.write(output);
-			output.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("No se encuentra el fichero");
-			e.printStackTrace();
-		} catch (IOException e){
-			System.out.println("Error de entrada/salida");
-			e.printStackTrace();
-		}
 	}
 }
