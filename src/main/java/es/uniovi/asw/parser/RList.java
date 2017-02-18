@@ -34,7 +34,7 @@ public abstract class RList implements ReadList{
 				if(arg.compareToIgnoreCase("-d") == 0) //por defecto
 					return new DefaultLetter(citizens,this.MESSAGE);
 				else
-					throw new IllegalArgumentException("Parámetro no reconocido, pruebe -help para obtener ayuda");
+					throw new IllegalArgumentException(arg+" no es una opción válida.Teclee -help para obtener ayuda");
 	}
 	
 	@Override

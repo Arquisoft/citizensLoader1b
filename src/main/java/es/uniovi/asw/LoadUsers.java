@@ -41,16 +41,34 @@ public class LoadUsers {
 			this.printHelp();
 			return;
 		}
-		for(int i=0;i < args.length;i++)
-			System.out.println(args[i]);
 		
 		String ruta = args[0];
 		if(args.length == 1) // nos llega sólo la ruta del fichero sin parametros
 			rList = new RListExcel("-d",ruta);
-		if(args.length == 2)
-			rList = new RListExcel(args[1],ruta);
+		if(args.length == 2){
+			String parameter = this.checkParameter(args[1]);
+			if(parameter != null)
+				rList = new RListExcel(args[1],ruta);
+			else{
+				System.err.println(args[1]+" no es una opción válida. Teclee -help para más información");
+				return;
+			}
+		}
 		rList.read();
 		return;
+	}
+	
+	private String checkParameter(String parameter){
+		if(parameter.compareToIgnoreCase("-w") == 0)
+			return "word";
+		else
+			if(parameter.compareToIgnoreCase("-p") == 0)
+				return "pdf";
+			else
+				if(parameter.compareToIgnoreCase("-d") == 0)
+					return "default";
+				else
+					return null;
 	}
 	
 	private void printHelp() {

@@ -1,46 +1,8 @@
-/*C2*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C3*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C4*/SET SCHEMA PUBLIC
-alter table persona add PASSWORD varchar(9) null
-DISCONNECT
 /*C5*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C6*/SET SCHEMA PUBLIC
-INSERT INTO PERSONA VALUES(3,'Nombre0','Apellidos0','email0@gmail.com','1996-03-01','Calle0','Espa\u00f1a','12345670A','yHrJevI7Y')
-INSERT INTO PERSONA VALUES(4,'Nombre1','Apellidos1','email1@gmail.com','1996-03-02','Calle1','Espa\u00f1a','12345671A','4@0Ae8coZ')
-INSERT INTO PERSONA VALUES(5,'Nombre2','Apellidos2','email2@gmail.com','1996-03-03','Calle2','Espa\u00f1a','12345672A','~Y00dLhWh')
-INSERT INTO PERSONA VALUES(6,'Nombre3','Apellidos3','email3@gmail.com','1996-03-04','Calle3','Espa\u00f1a','12345673A',')@G(nhbz&')
-INSERT INTO PERSONA VALUES(7,'Nombre4','Apellidos4','email4@gmail.com','1996-03-05','Calle4','Espa\u00f1a','12345674A','VGMsp8MM/')
-INSERT INTO PERSONA VALUES(8,'Nombre5','Apellidos5','email5@gmail.com','1996-03-06','Calle5','Espa\u00f1a','12345675A','o0pmI&ug$')
-INSERT INTO PERSONA VALUES(9,'Nombre6','Apellidos6','email6@gmail.com','1996-03-07','Calle6','Espa\u00f1a','12345676A','tAz@\u20ac5wW\u00ac')
-INSERT INTO PERSONA VALUES(10,'Nombre7','Apellidos7','email7@gmail.com','1996-03-08','Calle7','Espa\u00f1a','12345677A','SweiW9l5H')
+INSERT INTO PERSONA VALUES(3,'Juan','Torres Pardo','juan@example.com','1985-10-10','C/ Federico Garc\u00eda Lorca 2','Espa\u00f1ol','90500084Y','X#=ztqLbY')
+INSERT INTO PERSONA VALUES(4,'Luis','L\u00f3pez Fernando','luis@example.com','1970-03-02','C/ Real Oviedo 2','Espa\u00f1ol','19160962F','7d3pWXZU@')
+INSERT INTO PERSONA VALUES(5,'Ana','Torres Pardo','ana@example.com','1960-01-01','Av. De la Constituci\u00f3n 8','Espa\u00f1ol','09940449X','0hFynWc4(')
 COMMIT
-DISCONNECT
-/*C7*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C8*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C9*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C10*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C12*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-INSERT INTO PERSONA VALUES(11,'Nombre0','Apellidos0','email0@gmail.com','1996-03-01','Calle0','Espa\u00f1a','38145673A','RjtysujH1')
-INSERT INTO PERSONA VALUES(12,'Nombre1','Apellidos1','email1@gmail.com','1996-03-02','Calle1','Espa\u00f1a','26644330A','j\u00ac!KvPw2V')
-INSERT INTO PERSONA VALUES(13,'Nombre2','Apellidos2','email2@gmail.com','1996-03-03','Calle2','Espa\u00f1a','26534422A','Amach4(SQ')
-INSERT INTO PERSONA VALUES(14,'Nombre3','Apellidos3','email3@gmail.com','1996-03-04','Calle3','Espa\u00f1a','30457465A','h4Oh?jVHW')
-INSERT INTO PERSONA VALUES(15,'Nombre4','Apellidos4','email4@gmail.com','1996-03-05','Calle4','Espa\u00f1a','86368601A','g1\u00acmLc#?H')
-INSERT INTO PERSONA VALUES(16,'Nombre5','Apellidos5','email5@gmail.com','1996-03-06','Calle5','Espa\u00f1a','30631014A','O$jtj)eF1')
-INSERT INTO PERSONA VALUES(17,'Nombre6','Apellidos6','email6@gmail.com','1996-03-07','Calle6','Espa\u00f1a','24185331A','Jyn@08/Eq')
-INSERT INTO PERSONA VALUES(18,'Nombre7','Apellidos7','email7@gmail.com','1996-03-08','Calle7','Espa\u00f1a','20377708A','EgG\u00ac=4hkx')
-INSERT INTO PERSONA VALUES(19,'Nombre8','Apellidos8','email8@gmail.com','1996-03-09','Calle8','Espa\u00f1a','02263225A','l/RIE$sf#')
-COMMIT
-DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
 DISCONNECT
