@@ -33,6 +33,12 @@ public class CheckCitizenTest {
 				"Calle","España","12345678A");
 		CitizenDB citizenDBErrorDNI  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
 				"Calle","España","1234578A");
+		CitizenDB citizenDBApellidosVacio  = new CitizenDB("Nombre","","email@gmail.com",date,
+				"Calle","España","12345678A");
+		CitizenDB citizenDBDireccionVacia  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"","España","12345678A");
+		CitizenDB citizenDBNacionalidadVacia  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","","12345678A");
 		
 		
 		assertTrue(checkCitizen.checkCitizenInformation(citizenDBOk));
@@ -40,6 +46,9 @@ public class CheckCitizenTest {
 		assertFalse(checkCitizen.checkCitizenInformation(citizenDBErrorEmail));
 		assertFalse(checkCitizen.checkCitizenInformation(citizenDBNullBirtday));
 		assertFalse(checkCitizen.checkCitizenInformation(citizenDBErrorDNI));
+		assertFalse(checkCitizen.checkCitizenInformation(citizenDBApellidosVacio));
+		assertFalse(checkCitizen.checkCitizenInformation(citizenDBDireccionVacia));
+		assertFalse(checkCitizen.checkCitizenInformation(citizenDBNacionalidadVacia));
 	}
 	
 	@Test
