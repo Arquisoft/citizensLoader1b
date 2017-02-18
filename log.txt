@@ -158,3 +158,99 @@ Sat Feb 18 12:37:48 CET 2017 - El dni no tiene el formato correcto.
 Sat Feb 18 12:37:48 CET 2017 - El dni no tiene el formato correcto.
 Sat Feb 18 12:37:48 CET 2017 - El dni no tiene el formato correcto.
 Sat Feb 18 12:37:48 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:46:46 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:46:46 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:46:46 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:46:46 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:48:23 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:48:23 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:48:24 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:48:24 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:48:24 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:52:40 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:52:40 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:52:40 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:52:40 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:53:06 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:06 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:53:07 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:53:07 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:53:07 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:53:07 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:53:07 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:53:07 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:53:07 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:57:09 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:57:09 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:57:09 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:09 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:57:32 CET 2017 - El mail esta vacio.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El mail no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El campo birthday esta vacio.
+Sat Feb 18 12:57:32 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El dni esta vacio.
+Sat Feb 18 12:57:32 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El dni no tiene el formato correcto.
+Sat Feb 18 12:57:32 CET 2017 - El dni no tiene el formato correcto.
