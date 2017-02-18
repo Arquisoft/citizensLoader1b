@@ -39,14 +39,17 @@ public abstract class RList implements ReadList{
 	
 	@Override
 	public List<CitizenDB> read() {
-		try {
-			List<CitizenDB> citizens = new InsertR().insert(this.readFile());
+		/**try {
+			//List<CitizenDB> citizens = new InsertR().insert(this.readFile());
+			List<CitizenDB> citizens = this.readFile();
 			this.generateLetters(citizens);
 		} catch (SQLException e) {
 			System.err.println("Error al cargar el fichero de ciudadanos");
 			e.printStackTrace();
-		}
-		return null;
+		}**/
+		 List<CitizenDB> citizens = this.readFile();
+		 this.generateLetters(citizens);
+		 return citizens;
 	}
 	
 	protected abstract List<CitizenDB> readFile();
@@ -68,6 +71,10 @@ public abstract class RList implements ReadList{
 			}
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
+			return;
+		}
+		catch(NullPointerException e){
+			System.err.println("Error al obtener la lista de ciudadanos");
 			return;
 		}
 	}
