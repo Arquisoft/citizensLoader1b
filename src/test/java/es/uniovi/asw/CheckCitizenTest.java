@@ -78,8 +78,8 @@ public class CheckCitizenTest {
 		String mailSinArroba = "emailgmail.com";
 		String mailCArroba = "@email@gmail.com";
 		String mailCPunto = ".email@gmail.com";
-		String mailFPunto = "email@gmailco.m";
-		String mailFArroba = "emailgmail.co@m";
+		String mailFPunto = "email@gmailcom.";
+		String mailFArroba = "emailgmail.com@";
 		
 		assertTrue(checkCitizen.checkMail(mailValido));
 		assertFalse(checkCitizen.checkMail(mailVacio));
@@ -96,8 +96,8 @@ public class CheckCitizenTest {
 		String vacio = "";
 		String s = "prueba";
 		
-		assertTrue(checkCitizen.checkFieldString(vacio, "prueba"));
-		assertFalse(checkCitizen.checkFieldString(s, "prueba"));
+		assertFalse(checkCitizen.checkFieldString(vacio, "Prueba"));
+		assertTrue(checkCitizen.checkFieldString(s, "Prueba"));
 	}
 	
 	@Test
