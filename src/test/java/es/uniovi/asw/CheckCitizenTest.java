@@ -121,5 +121,48 @@ public class CheckCitizenTest {
 		assertFalse(checkCitizen.areDigits(cadenaCaracteres));
 		assertFalse(checkCitizen.areDigits(cadenaEspecial));
 	}
+	
+	@Test
+	public void toStringTest() throws ParseException{
+		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+		Date date =  d.parse("01-03-1996");
+		CitizenDB citizenDBOk  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","España","12345678A");
+		String correctToString = "[Nombre: " +"Nombre"+"] [Apellido: "+"Apellidos"+"] [E-Mail: "+"email@gmail.com"
+				+"] [Cumpleaños: "+date+"] [Direccion: "+"Calle"
+				+"] [Nacionalidad: "+"España"+"] [DNI: "+"12345678A"+"]";
+		
+		String incorrecto = "{Nombre: " +"Nombre"+"] [Apellido: "+"Apellidos"+"] [E-Mail: "+"email@gmail.com"
+				+"] [Cumpleaños: "+date+"] [Direccion: "+"Calle"
+				+"] [Nacionalidad: "+"España"+"] [DNI: "+"12345678A"+"}";
+		
+		assertEquals(citizenDBOk.toString(), correctToString);
+		assertFalse(citizenDBOk.toString().equals(incorrecto));
+	}
+	
+	@Test
+	public void hashCodeTest() throws ParseException{
+		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+		Date date =  d.parse("01-03-1996");
+		CitizenDB citizenDBOk  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","España","12345678A");
+		
+		assertEquals(-1867378596, citizenDBOk.hashCode());
+	}
+	
+	@Test
+	public void equalsTest() throws ParseException{
+		SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+		Date date =  d.parse("01-03-1996");
+		CitizenDB citizenDBOk  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","España","12345678A");
+		CitizenDB citizenDBOk1  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","España","12345678A");
+		CitizenDB citizenDBOk2  = new CitizenDB("Nombre","Apellidos","email@gmail.com",date,
+				"Calle","España","12345679A");
+		
+		assertTrue(citizenDBOk.equals(citizenDBOk1));
+		assertFalse(citizenDBOk.equals(citizenDBOk2));
+	}
 
 }
