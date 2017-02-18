@@ -20,12 +20,10 @@ import com.itextpdf.text.Paragraph;
  */
 public class PDFLetter extends AbstractWriteLetter{
 
-	private Document document;
 	
 	public PDFLetter(List<CitizenDB> citizens,String message) {
 		super(citizens,message);
 		for(CitizenDB citizen : citizens){
-			document = this.createDocument(citizen);
 			this.write(citizen);
 		}
 	}
@@ -36,39 +34,23 @@ public class PDFLetter extends AbstractWriteLetter{
 	 */
 	@Override
 	public void write(CitizenDB citizenDB){
-		if(document != null){
-			try{
-				document.add(new Paragraph("Estimado "+citizenDB.getName()));
-				document.add(new Paragraph(this.message));
-				document.add(new Paragraph("Usuario: "+citizenDB.getMail()));
-				document.add(new Paragraph("Contraseña: "+citizenDB.getPassword()));
-			}
-			catch(DocumentException e){
-				System.out.println("Error al crear el documento: "+citizenDB.getName()+".pdf");
-				e.printStackTrace();
-			}
-			this.document.close();
-		}
-	}
-	
-	/**
-	 * Se encarga de crear un Documento pdf con el nombre del usuario para su posterior edición
-	 */
-	private Document createDocument(CitizenDB citizen){
 		Document document = new Document();
-		try{
 		FileOutputStream pdfFile;
-			pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+citizen.getName()+".pdf");
+		try {
+			pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+citizenDB.getName()+".pdf");
 			PdfWriter.getInstance(document, pdfFile).setInitialLeading(20);
 			document.open();
-		} catch (DocumentException e) {
-			System.out.println("Error al crear el documento: "+citizen.getName()+".pdf");
-			e.printStackTrace();
-		}
-		catch (FileNotFoundException e) {
+			document.add(new Paragraph("Estimado "+citizenDB.getName()));
+			document.add(new Paragraph(this.message));
+			document.add(new Paragraph("Usuario: "+citizenDB.getMail()));
+			document.add(new Paragraph("Contraseña: "+citizenDB.getPassword()));
+			document.close();
+		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero");
 			e.printStackTrace();
+		} catch (DocumentException e) {
+			System.out.println("Error al crear el documento: "+citizenDB.getName()+".pdf");
+			e.printStackTrace();
 		}
-		return document;
 	}
 }
