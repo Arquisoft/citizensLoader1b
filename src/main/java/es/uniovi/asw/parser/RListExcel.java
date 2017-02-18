@@ -16,18 +16,28 @@ public class RListExcel extends RList {
 	 * @param path Dirección del fichero a cargar
 	 * @throws FileNotFoundException 
 	 */
-	public RListExcel(String letterType,String path) throws FileNotFoundException {
+	public RListExcel(String letterType,String path){
 		super(letterType);
-		this.adapter = new AdapterPoi(path);
+		try {
+			this.adapter = new AdapterPoi(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx"
 	 * de ejemplo
 	 * @throws FileNotFoundException 
 	 */
-	public RListExcel(String letterType) throws FileNotFoundException{
+	public RListExcel(String letterType){
 		super(letterType);
-		this.adapter = new AdapterPoi(DEFAULT_PATH);
+		try {
+			this.adapter = new AdapterPoi(DEFAULT_PATH);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<CitizenDB> readFile(){
