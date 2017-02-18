@@ -9,11 +9,13 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import es.uniovi.asw.ReportWriter.WreportP;
 import es.uniovi.asw.dbupdate.WReportR;
 
 public class LogTest {
 
 	WReportR logTest = new WReportR();
+	WreportP logTest2 = new WreportP();
 	
 	@Test
 	public void logTest() {
@@ -26,6 +28,28 @@ public class LogTest {
 			BufferedReader fileR = new BufferedReader(file);
 			
 			assertTrue(fileR.readLine().contains("Test de prueba para el log"));
+			
+			fileR.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void logTest2() {
+		String prueba = "Test de prueba para el log WReportP";
+		
+		logTest2.log(prueba);
+		
+		try {
+			FileReader file = new FileReader("logP.txt");
+			BufferedReader fileR = new BufferedReader(file);
+			
+			assertTrue(fileR.readLine().contains("Test de prueba para el log WReportP"));
 			
 			fileR.close();
 		} catch (FileNotFoundException e) {
