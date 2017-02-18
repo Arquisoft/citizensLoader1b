@@ -31,17 +31,17 @@ public class WordLetter extends AbstractWriteLetter {
 	@Override
 	public void write(CitizenDB citizen) {
 		XWPFDocument document = new XWPFDocument();
-		this.writeParagraph(document,"Estimado usuario");
-		this.writeParagraph(document,this.message);
-		this.writeParagraph(document,"Usuario: "+citizen.getMail());
-		this.writeParagraph(document,"Contraseña: "+citizen.getPassword());
-		FileOutputStream output;
+		FileOutputStream wordFile;
 		try {
-			output = new FileOutputStream("src/main/resources/letters/doc/"+citizen.getName()+".doc");
-			document.write(output);
-			output.close();
+			wordFile = new FileOutputStream("src/main/resources/letters/doc/"+citizen.getName()+".doc");
+			this.writeParagraph(document,"Estimado usuario");
+			this.writeParagraph(document,this.message);
+			this.writeParagraph(document,"Usuario: "+citizen.getMail());
+			this.writeParagraph(document,"Contraseña: "+citizen.getPassword());
+			document.write(wordFile);
+			wordFile.close();
 		} catch (FileNotFoundException e) {
-			System.err.println("Error al generar el documento Word;no se encuentra el fichero");
+			System.err.println("Error al generar el documento Word, no se encuentra el fichero");
 		} catch (IOException e) {
 			System.err.println("Error de entrada/salida al generar el documento Word");
 		}

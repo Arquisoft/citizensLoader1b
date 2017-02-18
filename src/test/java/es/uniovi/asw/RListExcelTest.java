@@ -12,14 +12,9 @@ public class RListExcelTest {
 
 	
 	@Test(expected = java.io.FileNotFoundException.class)
-	public void notFoundTest() throws FileNotFoundException{
+	public void notFoundTest() throws FileNotFoundException {
 		
-		try {
-			new AdapterPoi("ruta");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			throw e;
-		}
+		new AdapterPoi("ruta");
 		
 	}
 	
