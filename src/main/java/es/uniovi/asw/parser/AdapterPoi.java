@@ -32,14 +32,16 @@ public class AdapterPoi {
 	 * Constructor del archivo de entrada
 	 * y el libro de excel
 	 * @param path
+	 * @throws FileNotFoundException 
 	 */
-	public AdapterPoi(String path){
+	public AdapterPoi(String path) throws FileNotFoundException{
 		try {
 			FileInputStream file = new FileInputStream(new File(path));
 			this.workbook = new XSSFWorkbook(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero");
 			e.printStackTrace();
+			throw e;
 		} catch (IOException e) {
 			System.out.println("Error E/S");
 			e.printStackTrace();
