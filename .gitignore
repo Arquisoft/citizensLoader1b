@@ -4,6 +4,7 @@
 *.doc
 *.txt
 .metadata
+src/main/resources/letters
 bin/
 tmp/
 *.tmp
