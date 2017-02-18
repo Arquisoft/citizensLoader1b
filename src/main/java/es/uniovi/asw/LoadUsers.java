@@ -22,40 +22,48 @@ public class LoadUsers {
 	 * @param args
 	 * @throws SQLException 
 	 */
-	private void run(String args[]){
+	protected String run(String args[]){
 		if(args == null){
 			System.err.println("Error irrecuperable, reinicie la aplicacion");
-			return;
+			return "Error irrecuperable, reinicie la aplicacion";
 		}
 		if(args.length == 0){
 			System.err.println("Error en la entrada, teclee -help para ver la ayuda");
-			return;
+			return "Error en la entrada, teclee -help para ver la ayuda";
 		}
-		else{
-			this.runOptions(args);
-		}
+		else
+			return this.runOptions(args);
 	}
 	
-	private void runOptions(String args[]){
+	private String runOptions(String args[]){
 		if(args[0].compareToIgnoreCase("-help") == 0){
 			this.printHelp();
-			return;
+			return "ayuda";
 		}
 		
 		String ruta = args[0];
-		if(args.length == 1) // nos llega sólo la ruta del fichero sin parametros
+		if(args.length == 1){// nos llega sólo la ruta del fichero sin parametros
 			rList = new RListExcel("-d",ruta);
+			rList.read();
+			return "por defecto";
+		}
 		if(args.length == 2){
 			try{
+				if(args[1].compareToIgnoreCase("-w") != 0 && args[1].compareToIgnoreCase("-p") != 0
+						&& args[1].compareToIgnoreCase("-d") != 0){
+					System.err.println("Opción no reconocida: "+args[1]+". Teclee -help para ayuda");
+					return "error";
+				}
 				rList = new RListExcel(args[1],ruta);
+				rList.read();
+				return "parametros";
 			}
 			catch(IllegalArgumentException e){
 				System.err.println(e.getMessage());
-				return;
+				return "error";
 			}
 		}
-		rList.read();
-		return;
+		return "error";
 	}
 	
 	private void printHelp() {
