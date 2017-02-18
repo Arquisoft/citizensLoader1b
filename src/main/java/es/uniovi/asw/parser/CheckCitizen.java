@@ -51,7 +51,7 @@ public class CheckCitizen {
 	 * @param substring: cadena a comprobar
 	 * @return devueve true si la cadena son numeros y false si no
 	 */
-	private boolean areDigits(String substring) {
+	public boolean areDigits(String substring) {
 		for(int i = 0; i<substring.length() ; i++)
 			if(Character.isLetter(substring.toString().charAt(i)))
 				return false;
