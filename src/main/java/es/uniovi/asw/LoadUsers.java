@@ -1,9 +1,6 @@
 package es.uniovi.asw;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.SQLException;
-
 import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.RListExcel;
 
@@ -44,10 +41,14 @@ public class LoadUsers {
 			this.printHelp();
 			return;
 		}
+		for(int i=0;i < args.length;i++)
+			System.out.println(args[i]);
+		
 		String ruta = args[0];
-		if(args.length == 1){ // nos llega sólo la ruta del fichero sin parametros
-			rList = new RListExcel(ruta);
-		}
+		if(args.length == 1) // nos llega sólo la ruta del fichero sin parametros
+			rList = new RListExcel("-d",ruta);
+		if(args.length == 2)
+			rList = new RListExcel(args[1],ruta);
 		rList.read();
 		return;
 	}

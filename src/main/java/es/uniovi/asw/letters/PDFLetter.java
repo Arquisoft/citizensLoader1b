@@ -3,9 +3,12 @@ package es.uniovi.asw.letters;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.List;
 
 import com.itextpdf.text.pdf.PdfWriter;
+
+import es.uniovi.asw.CitizenDB;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -19,9 +22,12 @@ public class PDFLetter extends AbstractWriteLetter{
 
 	private Document document;
 	
-	public PDFLetter(String userName, String userPass,String mail) {
-		super(userName, userPass, mail);
-		document = this.createDocument();
+	public PDFLetter(List<CitizenDB> citizens,String message) {
+		super(citizens,message);
+		for(CitizenDB citizen : citizens){
+			document = this.createDocument(citizen);
+			this.write(citizen);
+		}
 	}
 
 	/**
@@ -29,16 +35,16 @@ public class PDFLetter extends AbstractWriteLetter{
 	 * al usuario en formato PDF
 	 */
 	@Override
-	public void write(String mensaje) throws IOException {
+	public void write(CitizenDB citizenDB){
 		if(document != null){
 			try{
-				document.add(new Paragraph("Estimado "+this.userName));
-				document.add(new Paragraph(mensaje));
-				document.add(new Paragraph("Usuario: "+this.mail));
-				document.add(new Paragraph("Contraseña: "+this.userPass));
+				document.add(new Paragraph("Estimado "+citizenDB.getName()));
+				document.add(new Paragraph(this.message));
+				document.add(new Paragraph("Usuario: "+citizenDB.getMail()));
+				document.add(new Paragraph("Contraseña: "+citizenDB.getPassword()));
 			}
 			catch(DocumentException e){
-				System.out.println("Error al crear el documento: "+this.userName+".pdf");
+				System.out.println("Error al crear el documento: "+citizenDB.getName()+".pdf");
 				e.printStackTrace();
 			}
 			this.document.close();
@@ -48,15 +54,15 @@ public class PDFLetter extends AbstractWriteLetter{
 	/**
 	 * Se encarga de crear un Documento pdf con el nombre del usuario para su posterior edición
 	 */
-	private Document createDocument(){
+	private Document createDocument(CitizenDB citizen){
 		Document document = new Document();
 		try{
 		FileOutputStream pdfFile;
-			pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+this.userName+".pdf");
+			pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+citizen.getName()+".pdf");
 			PdfWriter.getInstance(document, pdfFile).setInitialLeading(20);
 			document.open();
 		} catch (DocumentException e) {
-			System.out.println("Error al crear el documento: "+this.userName+".pdf");
+			System.out.println("Error al crear el documento: "+citizen.getName()+".pdf");
 			e.printStackTrace();
 		}
 		catch (FileNotFoundException e) {

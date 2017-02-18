@@ -2,6 +2,8 @@ package es.uniovi.asw.letters;
 
 import java.io.IOException;
 
+import es.uniovi.asw.CitizenDB;
+
 /**
  * Interfaz que implementarán los distintos algoritmos para escribir una las diferentes cartas 
  * (patrón de diseño Strategy)
@@ -10,10 +12,8 @@ import java.io.IOException;
  */
 public interface WriteLetter {
 	/**
-	 * Consideraremos de manera provisional para desarrollar la implementación inicial
-	 * que el texto de la carta se recibe como parámetro del método
-	 * @param mensaje
+	 * @param citizenDB TODO
 	 * @throws IOException TODO
 	 */
-	void write(String mensaje) throws IOException;  
+	void write(CitizenDB citizenDB) throws IOException;  
 }

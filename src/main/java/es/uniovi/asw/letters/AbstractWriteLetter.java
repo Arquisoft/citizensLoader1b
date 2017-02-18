@@ -1,43 +1,27 @@
 package es.uniovi.asw.letters;
 
+import es.uniovi.asw.CitizenDB;
 import java.io.IOException;
+import java.util.List;
 
 public abstract class AbstractWriteLetter implements WriteLetter {
+
+	protected List<CitizenDB> citizens;
+	protected String message;
 	
-	protected String userName;
-	protected String userPass;
-	protected String mail;
-	
-	public AbstractWriteLetter(String name,String userPass, String mail){
-		this.userName = name;
-		this.userPass = userPass;
-		this.mail = mail;
+	public AbstractWriteLetter(List<CitizenDB> citizens,String message){
+		this.citizens = citizens;
+		this.message = message;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getUserPass() {
-		return userPass;
-	}
-
-	public void setUserPass(String userPass) {
-		this.userPass = userPass;
+	public void setMessage(String message){
+		this.message = message;
 	}
 	
-	public String getMail(){
-		return this.mail;
+	public String getMessage(){
+		return this.message;
 	}
 	
-	public void setMail(String mail){
-		this.mail = mail;
-	}
-
 	@Override
-	public abstract void write(String mensaje) throws IOException;
+	public abstract void write(CitizenDB citizenDB) throws IOException;
 }

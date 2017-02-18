@@ -3,10 +3,13 @@ package es.uniovi.asw.letters;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+
+import es.uniovi.asw.CitizenDB;
 
 /**
  * Clase que implementa la interfaz WriterLetter para el envío de cartas con formato .doc
@@ -17,9 +20,12 @@ public class WordLetter extends AbstractWriteLetter {
 
 	private XWPFDocument document;
 	
-	public WordLetter(String userName,String userPass,String mail) {
-		super(userName,userPass, mail);
-		this.document = new XWPFDocument();
+	public WordLetter(List<CitizenDB> citizens,String message) {
+		super(citizens,message);
+		for(CitizenDB citizen : citizens){
+			this.document = new XWPFDocument();
+			this.write(citizen);
+		}
 	}
 
 	/**
@@ -27,12 +33,12 @@ public class WordLetter extends AbstractWriteLetter {
 	 * al usuario en formato Microsoft Word
 	 */
 	@Override
-	public void write(String mensaje) throws IOException {
+	public void write(CitizenDB citizen) {
 		this.writeParagraph("Estimado usuario");
-		this.writeParagraph(mensaje);
-		this.writeParagraph("Usuario: "+this.mail);
-		this.writeParagraph("Contraseña: "+this.userPass);
-		this.saveDocument("src/main/resources/letters/doc/"+this.userName);
+		this.writeParagraph(this.message);
+		this.writeParagraph("Usuario: "+citizen.getMail());
+		this.writeParagraph("Contraseña: "+citizen.getPassword());
+		this.saveDocument("src/main/resources/letters/doc/"+citizen.getName());
 	}
 	
 	

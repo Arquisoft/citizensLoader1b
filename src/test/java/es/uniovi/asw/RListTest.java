@@ -6,14 +6,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.ReadList;
 
 public class RListTest {
 	
 	
-	private ReadList reader = new RListExcel();
+	private ReadList reader = new RListExcel("src/test/resources/test.xlsx");
 
 	@Test
 	public void readFile(){

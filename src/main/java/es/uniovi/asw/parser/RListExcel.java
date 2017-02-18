@@ -1,6 +1,5 @@
 package es.uniovi.asw.parser;
 
-
 import java.util.List;
 import es.uniovi.asw.CitizenDB;
 
@@ -14,15 +13,16 @@ public class RListExcel extends RList {
 	 * parámetro
 	 * @param path Dirección del fichero a cargar
 	 */
-	public RListExcel(String path) {
+	public RListExcel(String letterType,String path) {
+		super(letterType);
 		this.adapter = new AdapterPoi(path);
 	}
-
 	/**
 	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx"
 	 * de ejemplo
 	 */
-	public RListExcel(){
+	public RListExcel(String letterType){
+		super(letterType);
 		this.adapter = new AdapterPoi(DEFAULT_PATH);
 	}
 	
