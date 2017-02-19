@@ -37,7 +37,7 @@ public class PDFLetter extends AbstractWriteLetter{
 		Document document = new Document();
 		FileOutputStream pdfFile;
 		try {
-			pdfFile = new FileOutputStream("src/main/resources/letters/PDF/"+citizenDB.getName()+".pdf");
+			pdfFile = new FileOutputStream(this.getPath()+"PDF/"+citizenDB.getName()+".pdf");
 			PdfWriter.getInstance(document, pdfFile).setInitialLeading(20);
 			document.open();
 			document.add(new Paragraph("Estimado "+citizenDB.getName()));

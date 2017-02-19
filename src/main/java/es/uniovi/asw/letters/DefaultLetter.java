@@ -22,7 +22,7 @@ public class DefaultLetter extends AbstractWriteLetter{
 			PrintWriter printWriter;
 			try {
 				printWriter = new PrintWriter(new FileWriter(
-						"src/main/resources/letters/plainText/"+citizenDB.getName()+".txt"));
+						this.getPath()+"plainText/"+citizenDB.getName()+".txt"));
 				printWriter.println("Estimado "+citizenDB.getName());
 				printWriter.println(this.message);
 				printWriter.println("Usuario: "+citizenDB.getMail());

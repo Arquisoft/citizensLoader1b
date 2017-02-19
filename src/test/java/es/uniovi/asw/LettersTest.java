@@ -22,7 +22,9 @@ public class LettersTest {
 	@Test
 	public void testDefaultLetter(){
 		this.createUsers();
-		writer = new DefaultLetter(citizens,"Mensaje de prueba");
+		writer = new DefaultLetter(citizens,"");
+		assertEquals(writer.getMessage(),"");
+		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {
@@ -38,7 +40,9 @@ public class LettersTest {
 	@Test
 	public void testWordLetter(){
 		this.createUsers();
-		writer = new WordLetter(citizens,"Mensaje de prueba");
+		writer = new WordLetter(citizens,"");
+		assertEquals(writer.getMessage(),"");
+		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {
@@ -59,7 +63,9 @@ public class LettersTest {
 	@Test
 	public void testPDFLetter(){
 		this.createUsers();
-		writer = new PDFLetter(citizens,"Mensaje de prueba");
+		writer = new PDFLetter(citizens,"");
+		assertEquals(writer.getMessage(),"");
+		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {

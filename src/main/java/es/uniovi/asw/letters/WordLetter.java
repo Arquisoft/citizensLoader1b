@@ -33,7 +33,7 @@ public class WordLetter extends AbstractWriteLetter {
 		XWPFDocument document = new XWPFDocument();
 		FileOutputStream wordFile;
 		try {
-			wordFile = new FileOutputStream("src/main/resources/letters/doc/"+citizen.getName()+".doc");
+			wordFile = new FileOutputStream(this.getPath()+"doc/"+citizen.getName()+".doc");
 			this.writeParagraph(document,"Estimado usuario");
 			this.writeParagraph(document,this.message);
 			this.writeParagraph(document,"Usuario: "+citizen.getMail());

@@ -8,6 +8,7 @@ public abstract class AbstractWriteLetter implements WriteLetter {
 
 	protected List<CitizenDB> citizens;
 	protected String message;
+	protected String path = "src/main/resources/letters/";
 	
 	public AbstractWriteLetter(List<CitizenDB> citizens,String message){
 		this.citizens = citizens;
@@ -20,6 +21,14 @@ public abstract class AbstractWriteLetter implements WriteLetter {
 	
 	public String getMessage(){
 		return this.message;
+	}
+	
+	public void setPath(String path){
+		this.path = path;
+	}
+	
+	public String getPath(){
+		return this.path;
 	}
 	
 	@Override

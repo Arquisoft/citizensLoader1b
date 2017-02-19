@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.RListExcel;
@@ -43,6 +44,7 @@ public class LoadUsers {
 		
 		String ruta = args[0];
 		if(args.length == 1){// nos llega sólo la ruta del fichero sin parametros
+			
 			rList = new RListExcel("-d",ruta);
 			rList.read();
 			return "por defecto";
@@ -54,6 +56,7 @@ public class LoadUsers {
 					System.err.println("Opción no reconocida: "+args[1]+". Teclee -help para ayuda");
 					return "error";
 				}
+				
 				rList = new RListExcel(args[1],ruta);
 				rList.read();
 				return "parametros";
