@@ -27,7 +27,10 @@ public class LogTest {
 			FileReader file = new FileReader("log.txt");
 			BufferedReader fileR = new BufferedReader(file);
 			
-			assertTrue(fileR.readLine().contains("Test de prueba para el log"));
+			String line;
+			while((line = fileR.readLine()) != null && !line.contains("Test de prueba para el log"));
+			
+			assertTrue(line.contains("Test de prueba para el log"));
 			
 			fileR.close();
 		} catch (FileNotFoundException e) {
@@ -48,8 +51,9 @@ public class LogTest {
 		try {
 			FileReader file = new FileReader("logP.txt");
 			BufferedReader fileR = new BufferedReader(file);
-			
-			assertTrue(fileR.readLine().contains("Test de prueba para el log WReportP"));
+			String line;
+			while((line = fileR.readLine()) != null && !line.contains("Test de prueba para el log WReportP"));
+			assertTrue(line.contains("Test de prueba para el log WReportP"));
 			
 			fileR.close();
 		} catch (FileNotFoundException e) {
