@@ -1,7 +1,6 @@
 package es.uniovi.asw.parser;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import es.uniovi.asw.CitizenDB;
@@ -23,9 +22,7 @@ public class RListExcel extends RList {
 			this.adapter = new AdapterPoi(path);
 		} catch (FileNotFoundException e) {
 			System.err.println("Error, la ruta \""+this.DEFAULT_PATH+"\" no contiene un fichero válido");
-		} catch (IOException e) {
-			System.err.println("Error de entrada/Salida");
-		}
+		} 
 	}
 	/**
 	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx"
@@ -38,9 +35,6 @@ public class RListExcel extends RList {
 			this.adapter = new AdapterPoi(DEFAULT_PATH);
 		} catch (FileNotFoundException e) {
 			System.err.println("Error, la ruta \""+this.DEFAULT_PATH+"\" no contiene un fichero válido");
-		}
-		catch (IOException e) {
-			System.err.println("Error de entrada/Salida");
 		}
 	}
 	

@@ -24,16 +24,21 @@ public class PDFLetter extends AbstractWriteLetter{
 	public PDFLetter(List<CitizenDB> citizens,String message) {
 		super(citizens,message);
 		for(CitizenDB citizen : citizens){
-			this.write(citizen);
+			try {
+				this.write(citizen);
+			} catch (FileNotFoundException e) {
+				System.err.println("Error al crear la carta: "+citizen.getName()+".pdf");
+			}
 		}
 	}
 
 	/**
 	 * Sobreescritura del método write para escribir la carta 
 	 * al usuario en formato PDF
+	 * @throws FileNotFoundException 
 	 */
 	@Override
-	public void write(CitizenDB citizenDB){
+	public void write(CitizenDB citizenDB) throws FileNotFoundException{
 		Document document = new Document();
 		FileOutputStream pdfFile;
 		try {
@@ -45,10 +50,7 @@ public class PDFLetter extends AbstractWriteLetter{
 			document.add(new Paragraph("Usuario: "+citizenDB.getMail()));
 			document.add(new Paragraph("Contraseña: "+citizenDB.getPassword()));
 			document.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("No se encuentra el fichero");
-			e.printStackTrace();
-		} catch (DocumentException e) {
+		}  catch (DocumentException e) {
 			System.out.println("Error al crear el documento: "+citizenDB.getName()+".pdf");
 			e.printStackTrace();
 		}

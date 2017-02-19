@@ -21,7 +21,11 @@ public class WordLetter extends AbstractWriteLetter {
 	public WordLetter(List<CitizenDB> citizens,String message) {
 		super(citizens,message);
 		for(CitizenDB citizen : citizens)
-			this.write(citizen);
+			try {
+				this.write(citizen);
+			} catch (FileNotFoundException e) {
+				System.err.println("Error al crear la carta: "+citizen.getName()+".doc");
+			}
 	}
 
 	/**
@@ -29,7 +33,7 @@ public class WordLetter extends AbstractWriteLetter {
 	 * al usuario en formato Microsoft Word
 	 */
 	@Override
-	public void write(CitizenDB citizen) {
+	public void write(CitizenDB citizen) throws FileNotFoundException {
 		XWPFDocument document = new XWPFDocument();
 		FileOutputStream wordFile;
 		try {
@@ -40,8 +44,6 @@ public class WordLetter extends AbstractWriteLetter {
 			this.writeParagraph(document,"Contraseña: "+citizen.getPassword());
 			document.write(wordFile);
 			wordFile.close();
-		} catch (FileNotFoundException e) {
-			System.err.println("Error al generar el documento Word, no se encuentra el fichero");
 		} catch (IOException e) {
 			System.err.println("Error de entrada/salida al generar el documento Word");
 		}

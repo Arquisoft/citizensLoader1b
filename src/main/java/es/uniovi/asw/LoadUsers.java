@@ -1,6 +1,5 @@
 package es.uniovi.asw;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.RListExcel;

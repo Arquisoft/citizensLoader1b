@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import es.uniovi.asw.parser.GenerationPassword;
 import es.uniovi.asw.letters.*;
 
@@ -23,6 +27,7 @@ public class LettersTest {
 	public void testDefaultLetter(){
 		this.createUsers();
 		writer = new DefaultLetter(citizens,"");
+		assertEquals(writer.getPath(),"src/main/resources/letters/");
 		assertEquals(writer.getMessage(),"");
 		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
@@ -41,6 +46,7 @@ public class LettersTest {
 	public void testWordLetter(){
 		this.createUsers();
 		writer = new WordLetter(citizens,"");
+		assertEquals(writer.getPath(),"src/main/resources/letters/");
 		assertEquals(writer.getMessage(),"");
 		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
@@ -64,6 +70,7 @@ public class LettersTest {
 	public void testPDFLetter(){
 		this.createUsers();
 		writer = new PDFLetter(citizens,"");
+		assertEquals(writer.getPath(),"src/main/resources/letters/");
 		assertEquals(writer.getMessage(),"");
 		writer.setMessage("Mensaje de prueba");
 		assertEquals(writer.getMessage(),"Mensaje de prueba");
@@ -80,6 +87,41 @@ public class LettersTest {
 				System.out.println(e.getMessage());
 			}
 		this.deleteUsers();
+	}
+	
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();
+	
+	@Test
+	public void testPDPFileNotFound() throws FileNotFoundException{
+		try{
+			writer = new PDFLetter(citizens,"prueba");
+			writer.setPath("/ruta/Inventada");
+			assertEquals(writer.getPath(),"/ruta/Inventada");
+			writer.write(new CitizenDB("Juan","Rodriguez Garcia","juan@gmail.com",new Date(1234),"C/la luna","España","71654234J"));
+			exception.expect(FileNotFoundException.class);
+		}
+		catch(FileNotFoundException e){
+			System.err.println("Ruta inválida: \""+writer.getPath()+"\"");
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	
+	public void testDocFileNotFound() throws FileNotFoundException{
+		try{
+			writer = new WordLetter(citizens,"prueba");
+			writer.setPath("/ruta/Inventada");
+			assertEquals(writer.getPath(),"/ruta/Inventada");
+			writer.write(new CitizenDB("Juan","Rodriguez Garcia","juan@gmail.com",new Date(1234),"C/la luna","España","71654234J"));
+			exception.expect(FileNotFoundException.class);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void createUsers(){
