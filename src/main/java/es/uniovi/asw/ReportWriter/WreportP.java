@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class WreportP implements WriteReport{
 
-	File file = new File("log.txt");
 	@Override
 	public void log(String datos) {		
+		File file = new File("logP.txt");
 
 		try {				
 
