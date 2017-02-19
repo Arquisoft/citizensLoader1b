@@ -11,6 +11,7 @@ public class TestLoadUsers {
 		
 		String args[] = null;
 		assertEquals(loader.run(args),"Error irrecuperable, reinicie la aplicacion");
+		LoadUsers.main(args);
 		
 		args = new String[0];
 		assertEquals(loader.run(args),"Error en la entrada, teclee -help para ver la ayuda");
@@ -35,7 +36,7 @@ public class TestLoadUsers {
 		
 		args[1] = "-a";
 		assertEquals(loader.run(args),"error");
-		
+			
 		args[1] = "123";
 		assertEquals(loader.run(args),"error");
 		
