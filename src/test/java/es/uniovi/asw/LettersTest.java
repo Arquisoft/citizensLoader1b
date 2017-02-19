@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -14,7 +15,7 @@ import es.uniovi.asw.letters.*;
 
 public class LettersTest {
 	
-	private WriteLetter writer;
+	private AbstractWriteLetter writer;
 	private List<CitizenDB> citizens = new ArrayList<CitizenDB>();
 	private final String RUTA = "src/main/resources/letters/";
 	
@@ -22,6 +23,7 @@ public class LettersTest {
 	public void testDefaultLetter(){
 		this.createUsers();
 		writer = new DefaultLetter(citizens,"Mensaje de prueba");
+		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {
 				writer.write(c);
@@ -37,6 +39,7 @@ public class LettersTest {
 	public void testWordLetter(){
 		this.createUsers();
 		writer = new WordLetter(citizens,"Mensaje de prueba");
+		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {
 				writer.write(c);
@@ -57,6 +60,7 @@ public class LettersTest {
 	public void testPDFLetter(){
 		this.createUsers();
 		writer = new PDFLetter(citizens,"Mensaje de prueba");
+		assertEquals(writer.getMessage(),"Mensaje de prueba");
 		for(CitizenDB c : citizens)
 			try {
 				writer.write(c);
