@@ -2,15 +2,11 @@ package es.uniovi.asw.dbupdate;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-
 import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.parser.CheckCitizen;
 import es.uniovi.asw.parser.GenerationPassword;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -19,28 +15,21 @@ import es.uniovi.asw.parser.GenerationPassword;
 public class InsertP implements Insert{
 
 	private CheckCitizen checkCitizen = new CheckCitizen();
-	private GenerationPassword generationPassword = new GenerationPassword();
+	private GenerationPassword generationPassword = new GenerationPassword();	
+	@Autowired
+	UserRepository userRepository;
 	
 	@Override
 	public List<CitizenDB> insert(List<CitizenDB> citizens) throws SQLException {
-		EntityManager em = Jpa.createEntityManager();
-		EntityTransaction trx = em.getTransaction();
-		trx.begin();
 		try{
 			
 			for(CitizenDB citizen : citizens)
 				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
 					citizen.setPassword(generationPassword.passwordGenerator());
-					Jpa.getManager().persist(citizen);
-				}
-	    
-		trx.commit();	    
+					userRepository.save(citizen);
+				}	    
 		}catch(RuntimeException e){
 			trx.rollback();
-	    	throw e;
-		}
-		finally{
-			em.close();
 		}
 		return null;
 	}
@@ -51,9 +40,8 @@ public class InsertP implements Insert{
 	 */
 	private boolean checkCitizen(CitizenDB citizen) {
 		WriteReport report = new WReportR();
-		Query query = Jpa.getManager().createQuery("select c from CitizenDB c where c.DNI = ?1");
-		query.setParameter(1 , citizen.getDNI());
-		if(!query.getResultList().isEmpty()){
+		CitizenDB citizen = userRepository.findByDni(dni);
+		if(citizen !=null){
 			report.log("El usuario ya existe en la base de datos.");
 			return false;
 		}
