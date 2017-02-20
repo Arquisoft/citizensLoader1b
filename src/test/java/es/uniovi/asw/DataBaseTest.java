@@ -28,7 +28,7 @@ public class DataBaseTest {
 					"Calle"+i,"España", generatorDNI()+"A");
 			citizenDBs.add(citizenDB);
 		}
-			//Insert insert = new InsertP();
+			Insert insert = new InsertP();
 			
 			//insert.insert(citizenDBs);
 			
