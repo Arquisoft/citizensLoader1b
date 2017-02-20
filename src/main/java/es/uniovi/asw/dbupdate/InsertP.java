@@ -6,6 +6,7 @@ import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.parser.CheckCitizen;
 import es.uniovi.asw.parser.GenerationPassword;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -16,21 +17,18 @@ public class InsertP implements Insert{
 
 	private CheckCitizen checkCitizen = new CheckCitizen();
 	private GenerationPassword generationPassword = new GenerationPassword();	
+	
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	@Override
 	public List<CitizenDB> insert(List<CitizenDB> citizens) throws SQLException {
-		try{
-			
+		
 			for(CitizenDB citizen : citizens)
-				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen)){
+				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen.getDNI())){
 					citizen.setPassword(generationPassword.passwordGenerator());
 					userRepository.save(citizen);
 				}	    
-		}catch(RuntimeException e){
-			trx.rollback();
-		}
 		return null;
 	}
 
@@ -38,7 +36,7 @@ public class InsertP implements Insert{
 	 * @param citizen: ciudadano que queremos comprobar
 	 * @return devuelve true si no esta y false si esta
 	 */
-	private boolean checkCitizen(CitizenDB citizen) {
+	private boolean checkCitizen(String dni) {
 		WriteReport report = new WReportR();
 		CitizenDB citizen = userRepository.findByDni(dni);
 		if(citizen !=null){

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import es.uniovi.asw.CitizenDB;
+import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.dbupdate.InsertP;
 
 public class InsertR implements Insert{
