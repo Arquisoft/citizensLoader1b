@@ -51,7 +51,9 @@ public class DataBaseTest {
 	public void createTabletest() throws Exception {
 		assertTrue(Database.getDatabase().existTable());
 		removeTable();
-		assertFalse(Database.getDatabase().existTable());
+		assertFalse(Database.getDatabase().existTable());	
+                Database.getDatabase();	
+                assertTrue(Database.getDatabase().existTable());
 	}
 	
 	private int numberCitizen(){
