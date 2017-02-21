@@ -1,6 +1,7 @@
 package es.uniovi.asw.dbupdate;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,12 +26,14 @@ public class InsertP implements Insert{
 		EntityManager em = Jpa.createEntityManager();
 		EntityTransaction trx = em.getTransaction();
 		trx.begin();
+		List<CitizenDB> users = new ArrayList<CitizenDB>();
 		try{
 			
 			for(CitizenDB citizen : citizens)
 				if(checkCitizen.checkCitizenInformation(citizen) && checkCitizen(citizen)){
 					citizen.setPassword(generationPassword.passwordGenerator());
 					Jpa.getManager().persist(citizen);
+					users.add(citizen);
 				}
 	    
 		trx.commit();	    
@@ -41,7 +44,7 @@ public class InsertP implements Insert{
 		finally{
 			em.close();
 		}
-		return null;
+		return users;
 	}
 
 	/**Metodo que se encarga de comprobar si un ciudano ya existe en la base de datos

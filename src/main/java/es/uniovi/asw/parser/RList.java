@@ -2,7 +2,9 @@ package es.uniovi.asw.parser;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+
 import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.letters.DefaultLetter;
 import es.uniovi.asw.letters.PDFLetter;
@@ -38,14 +40,13 @@ public abstract class RList implements ReadList{
 	
 	@Override
 	public List<CitizenDB> read() {
-		/**try {
-			//List<CitizenDB> citizens = new InsertR().insert(this.readFile());
-			List<CitizenDB> citizens = this.readFile();
+		try {
+			List<CitizenDB> citizens = new InsertR().insert(this.readFile());
 			this.generateLetters(citizens);
 		} catch (SQLException e) {
 			System.err.println("Error al cargar el fichero de ciudadanos");
 			e.printStackTrace();
-		}**/
+		}
 		 List<CitizenDB> citizens = this.readFile();
 		 this.generateLetters(citizens);
 		 return citizens;

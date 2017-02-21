@@ -62,7 +62,9 @@ public class LoadUsers {
 				}
 				
 				rList = new RListExcel(args[1],ruta);
-				rList.read();
+				for (CitizenDB citizenDB :rList.read()){
+					System.out.print(citizenDB);
+				}
 				return "parametros";
 			}
 			catch(IllegalArgumentException e){
