@@ -32,6 +32,7 @@ public class AdapterPoi {
 	 * Constructor del archivo de entrada
 	 * y el libro de excel
 	 * @param path Ruta de acceso al fichero
+	 * @throws FileNotFoundException en caso de que no exista el fichero a ejecutar
 	 */
 	public AdapterPoi(String path) throws FileNotFoundException {
 			FileInputStream file = new FileInputStream(new File(path));

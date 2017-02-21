@@ -16,6 +16,8 @@ public class CheckCitizen {
 
 	/**
 	 * @param citizen Usuario del que se quiere a comprobar los datos
+	 * @return trtue en caso de que todas las comprobaciones a realizar sean correctas,
+	 * false en caso contrario.
 	 */
 	public boolean checkCitizenInformation(CitizenDB citizen){
 		return checkFieldString(citizen.getName(),"name") 
