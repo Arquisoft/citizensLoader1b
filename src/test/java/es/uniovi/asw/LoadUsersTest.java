@@ -3,7 +3,7 @@ package es.uniovi.asw;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TestLoadUsers {
+public class LoadUsersTest {
 
 	@Test
 	public void testRun(){

@@ -2,12 +2,14 @@ package es.uniovi.asw.dbupdate;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
 import es.uniovi.asw.CitizenDB;
-import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.parser.CheckCitizen;
 import es.uniovi.asw.parser.GenerationPassword;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -16,19 +18,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class InsertP implements Insert{
 
 	private CheckCitizen checkCitizen = new CheckCitizen();
-	private GenerationPassword generationPassword = new GenerationPassword();	
-	
-	@Autowired
-	private UserRepository userRepository;
+	private GenerationPassword generationPassword = new GenerationPassword();
 	
 	@Override
 	public List<CitizenDB> insert(List<CitizenDB> citizens) throws SQLException {
-		
+		EntityManager em = Jpa.createEntityManager();
+		EntityTransaction trx = em.getTransaction();
+		trx.begin();
+		try{
+			
 			for(CitizenDB citizen : citizens)
-				if(checkCitizen.checkCitizenInformation(citizen)  && checkCitizen(citizen.getDNI())){
+				if(checkCitizen.checkCitizenInformation(citizen) && checkCitizen(citizen)){
 					citizen.setPassword(generationPassword.passwordGenerator());
-					userRepository.save(citizen);
-				}	    
+					Jpa.getManager().persist(citizen);
+				}
+	    
+		trx.commit();	    
+		}catch(RuntimeException e){
+			trx.rollback();
+	    	throw e;
+		}
+		finally{
+			em.close();
+		}
 		return null;
 	}
 
@@ -36,11 +48,12 @@ public class InsertP implements Insert{
 	 * @param citizen: ciudadano que queremos comprobar
 	 * @return devuelve true si no esta y false si esta
 	 */
-	private boolean checkCitizen(String dni) {
-		WriteReport report = new WReportR();
-		CitizenDB citizen = userRepository.findByDni(dni);
-		if(citizen !=null){
-			report.log("El usuario ya existe en la base de datos.");
+	private boolean checkCitizen(CitizenDB citizen) {
+
+		Query query = Jpa.getManager().createQuery("select c from CitizenDB c where c.DNI = ?1");
+		query.setParameter(1 , citizen.getDNI());
+		if(!query.getResultList().isEmpty()){
+			//Una vez hecho el logo aqui iria reporter.write(informacion que tenemos que meter en el log);
 			return false;
 		}
 		return true;
