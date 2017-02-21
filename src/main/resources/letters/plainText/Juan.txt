@@ -1,4 +1,4 @@
 Estimado Juan
-mediante el presente mail le adjuntamos su usuario y contraseÃ±a de inicio de sesiÃ³n para nuestra aplicaciÃ³n
+mediante el presente mail le adjuntamos su usuario y contraseña de inicio de sesión para nuestra aplicación
 Usuario: juan@example.com
-ContraseÃ±a: 5nktAweT1
+Contraseña: aJ@MYaHfA

@@ -52,8 +52,8 @@ public class WordLetter extends AbstractWriteLetter {
 	/**
 	 * Método que se encarga de escribir un texto en un párrafo 
 	 * de un documento Microsoft Word
-	 * @param document
-	 * @param text
+	 * @param document El documento word que se va a crear
+	 * @param text El texto a meter en el word
 	 */
 	private void writeParagraph(XWPFDocument document,String text){
 		XWPFParagraph paragraph = document.createParagraph();

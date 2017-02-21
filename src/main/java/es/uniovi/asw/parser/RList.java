@@ -2,7 +2,6 @@ package es.uniovi.asw.parser;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import es.uniovi.asw.CitizenDB;
 import es.uniovi.asw.letters.DefaultLetter;

@@ -14,7 +14,7 @@ public class RListExcel extends RList {
 	 * Inicializamos la referencia al libro excel con la ruta recibida como
 	 * parámetro
 	 * @param path Dirección del fichero a cargar
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException en caso de que no exista el fichero
 	 */
 	public RListExcel(String letterType,String path){
 		super(letterType);
@@ -27,7 +27,7 @@ public class RListExcel extends RList {
 	/**
 	 * En el constructor por defecto cargamos la hoja de excel "test.xlsx"
 	 * de ejemplo
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException en caso de que no exista el fichero
 	 */
 	public RListExcel(String letterType){
 		super(letterType);

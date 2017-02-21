@@ -31,7 +31,7 @@ public class AdapterPoi {
 	/**
 	 * Constructor del archivo de entrada
 	 * y el libro de excel
-	 * @param path
+	 * @param path Ruta de acceso al fichero
 	 */
 	public AdapterPoi(String path) throws FileNotFoundException {
 			FileInputStream file = new FileInputStream(new File(path));
@@ -47,7 +47,7 @@ public class AdapterPoi {
 	 * Método que se encarga de leer el libro de excel
 	 * cuya ruta recibimos en el constructor y devuelve una lista 
 	 * de ciudadanos
-	 * @return
+	 * @return lista de Usuarios de la base de datos
 	 */
 	public List<CitizenDB> readExcelFile(){
 		List<CitizenDB> citizens = new ArrayList<CitizenDB>(); 

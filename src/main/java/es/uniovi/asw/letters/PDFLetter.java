@@ -35,7 +35,7 @@ public class PDFLetter extends AbstractWriteLetter{
 	/**
 	 * Sobreescritura del método write para escribir la carta 
 	 * al usuario en formato PDF
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException en caso de que no exista el fichero
 	 */
 	@Override
 	public void write(CitizenDB citizenDB) throws FileNotFoundException{

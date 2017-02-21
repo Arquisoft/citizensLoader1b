@@ -1,6 +1,5 @@
 package es.uniovi.asw;
 
-import java.sql.SQLException;
 import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.RListExcel;
 
@@ -18,9 +17,10 @@ public class LoadUsers {
 		runner.run(args);
 	}
 
-	/** En esta version solo mostramos por pantalla los usuarios leidos
-	 * @param args
-	 * @throws SQLException 
+	/**
+	 * Metodo para ejecutar la aplicacion
+	 * @param args argumentos para el ejecutado
+	 * @return String con el resultado del runeo
 	 */
 	protected String run(String args[]){
 		if(args == null){
@@ -35,6 +35,11 @@ public class LoadUsers {
 			return this.runOptions(args);
 	}
 	
+	/**
+	 * 
+	 * @param args argumentos para las opciones de la ejecucion
+	 * @return String con el resulado de este método de ejecucion
+	 */
 	private String runOptions(String args[]){
 		if(args[0].compareToIgnoreCase("-help") == 0){
 			this.printHelp();
