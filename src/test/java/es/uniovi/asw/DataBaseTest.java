@@ -52,8 +52,10 @@ public class DataBaseTest {
 		assertTrue(Database.getDatabase().existTable());
 		removeTable();
 		assertFalse(Database.getDatabase().existTable());	
-                Database.getDatabase();	
-                assertTrue(Database.getDatabase().existTable());
+                EntityManager em = Jpa.createEntityManager();
+                em.close;
+	
+	
 	}
 	
 	private int numberCitizen(){
