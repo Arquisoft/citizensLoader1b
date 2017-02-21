@@ -34,6 +34,7 @@ public class Jpa {
 		if (emf == null){
 			String persistenceUnitName = loadPersistentUnitName();
 			emf = Persistence.createEntityManagerFactory(persistenceUnitName);
+			Database.getDatabase();
 		}
 		return emf;
 	}
