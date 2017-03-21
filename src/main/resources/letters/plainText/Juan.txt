@@ -1,4 +1,4 @@
 Estimado Juan
-mediante el presente mail le adjuntamos su usuario y contraseña de inicio de sesión para nuestra aplicación
-Usuario: juan@example.com
-Contraseña: Ys4=1Y=€s
+Mensaje de prueba
+Usuario: juan@gmail.com
+Contraseña: Nb#TdWw24

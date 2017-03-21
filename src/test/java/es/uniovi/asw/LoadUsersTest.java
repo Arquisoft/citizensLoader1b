@@ -1,12 +1,15 @@
 package es.uniovi.asw;
 
 import org.junit.Test;
+
+import es.uniovi.asw.dbupdate.Database;
 import static org.junit.Assert.*;
 
 public class LoadUsersTest {
 
 	@Test
 	public void testRun(){
+		Database.getDatabase();
 		LoadUsers loader = new LoadUsers();
 		
 		String args[] = null;

@@ -41,6 +41,7 @@ public class Database {
 		return database;
 			
 	}
+	
 	public boolean existTable()  {
 		boolean bResult = false;
 		try {
