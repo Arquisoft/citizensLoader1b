@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import es.uniovi.asw.dbupdate.Database;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.ReadList;
 
@@ -14,7 +13,6 @@ public class RListTest {
 	
 	@Test
 	public void readFile(){
-		Database.getDatabase();
 		ReadList reader = new RListExcel("src/test/resources/test.xlsx");
 			List<CitizenDB> citizens = reader.read();
 			assertEquals(citizens.get(0).getSurname(), "Torres Pardo");

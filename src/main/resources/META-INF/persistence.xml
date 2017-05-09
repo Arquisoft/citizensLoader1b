@@ -13,10 +13,10 @@
 			<property name="eclipselink.logging.file" value="eclipselink.log"/>
 			<property name="eclipselink.logging.level" value="OFF"/>
 						
-			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test" />
-			<property name="javax.persistence.jdbc.user" value="sa" />
-			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://35.157.35.102/postgres" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="sRdCe3Ak" />
 		</properties>
 	</persistence-unit>
 

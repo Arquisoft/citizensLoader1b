@@ -2,13 +2,11 @@ package es.uniovi.asw;
 
 import static org.junit.Assert.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.persistence.EntityManager;
@@ -16,7 +14,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import org.junit.Test;
 
-import es.uniovi.asw.dbupdate.Database;
 import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.dbupdate.InsertP;
 import es.uniovi.asw.dbupdate.Jpa;
@@ -37,23 +34,17 @@ public class DataBaseTest {
 		for(int i = 0; i<9 ; i++){
 			Date date =  d.parse((1+i)+"-03-1996");
 			CitizenDB citizenDB  = new CitizenDB("Nombre"+i,"Apellidos"+i,"email"+i+"@gmail.com",date,
-					"Calle"+i,"España", generatorDNI()+"A");
+					"Calle"+i,"España", generatorDNI()+"A", "ADMIN");
 			citizenDBs.add(citizenDB);
 		}
 			Insert insert = new InsertP();		
-			
 			insert.insert(citizenDBs);
 		int numeroDespues = numberCitizen();
 		assertTrue(numeroAntes<numeroDespues);
+		
+		borrarUsuarios(citizenDBs);
 	}
-	
-	@Test
-	public void createTabletest() throws Exception {
-		assertTrue(Database.getDatabase().existTable());
-		removeTable();
-		assertFalse(Database.getDatabase().existTable());	
-               
-	}
+
 	
 	private int numberCitizen(){
 		EntityManager em = Jpa.createEntityManager();
@@ -73,26 +64,6 @@ public class DataBaseTest {
 		}
 	}
 	
-	private void removeTable(){
-		Connection connection = null;
-		Statement st = null;
-		try {
-			connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-			st = connection.createStatement();
-			st.execute("DROP TABLE PERSONA");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally{
-			try {
-				st.close();
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
 	private Object generatorDNI() {
 		Random random = new Random();
 		String dni = "";
@@ -102,5 +73,26 @@ public class DataBaseTest {
 		return dni;
 			
 	}
+	
+	private void borrarUsuarios(List<CitizenDB> users){
+		EntityManager em = Jpa.createEntityManager();
+		EntityTransaction trx = em.getTransaction();
+		trx.begin();
+		try{
+			for(CitizenDB citizen : users){
+					citizen = Jpa.getManager().merge(citizen);
+					Jpa.getManager().remove(citizen);  
+			}
+		trx.commit();	    
+		}catch(RuntimeException e){
+			trx.rollback();
+	    	throw e;
+		}
+		finally{
+			em.close();
+		}
+
+	}
+
 }
 

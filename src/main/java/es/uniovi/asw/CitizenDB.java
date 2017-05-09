@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @author Sergio
  */
 @Entity
-@Table(name="Persona")
+@Table(name="ciudadano")
 public class CitizenDB {
 
 	@Id
@@ -32,6 +32,8 @@ public class CitizenDB {
 	private String DNI;
 	@Column(nullable = true)
 	private String password; //La password que se va a poner al ciudadano
+	@Column(nullable = true)
+	private String type;
 	
 
 	/**Constructor de la clase CitizenDB
@@ -45,7 +47,7 @@ public class CitizenDB {
 	 * @param DNI: DNI del citizen
 	 */
 	public CitizenDB(String name,String surname,String mail,Date bithday,
-			String address,String nationality,String DNI){
+			String address,String nationality,String DNI,String type){
 		this.name = name;
 		this.surname = surname;
 		this.mail = mail;
@@ -53,6 +55,7 @@ public class CitizenDB {
 		this.address = address;
 		this.nationality = nationality;
 		this.DNI = DNI;
+		this.type = type;
 	}
 	
 	
@@ -62,6 +65,18 @@ public class CitizenDB {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 
 	/**Metodo de modificacion del atributo name
 	 * @param name : name del citizen

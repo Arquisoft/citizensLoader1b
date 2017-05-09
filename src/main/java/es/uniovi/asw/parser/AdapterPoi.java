@@ -106,6 +106,9 @@ public class AdapterPoi {
 		case 6:
 			citizen.setDNI(cell.getStringCellValue());
 			return;
+		case 7:
+			citizen.setType(cell.getStringCellValue());
+			return;
 		default:
 			return;
 		}

@@ -51,6 +51,7 @@ public class LoadUsers {
 			
 			rList = new RListExcel("-d",ruta);
 			rList.read();
+			System.out.println("Los usuarios se han creado correctamente");
 			return "por defecto";
 		}
 		if(args.length == 2){
