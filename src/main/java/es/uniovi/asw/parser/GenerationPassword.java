@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GenerationPassword {
 
-	private String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#~€¬!$%&/()=?¿";
+	private String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	
 	private int passwordLengt = 9;
 	
